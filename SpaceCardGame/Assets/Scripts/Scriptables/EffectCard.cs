@@ -11,6 +11,8 @@ public class EffectCard : BaseCard
     public int lifeTime;
     [SerializeField]
     private EffectType thisEffect;
+    public string description;
+    //a short description for the player to read
     public override void Play()
     {
 
