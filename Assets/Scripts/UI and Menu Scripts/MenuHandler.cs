@@ -10,29 +10,6 @@ public class MenuHandler : MonoBehaviour
 {
     //Singleton class
     public static MenuHandler instance { get; private set; }
-
-
-    #region variables and Enum
-
-    public GameObject[] panels;
-
-    public enum MenuStates
-    {
-        MainMenu,
-        JoinGame,
-        HostGame,
-        DeckBuilder,
-        Options,
-        QuitGame,
-        GamePlay,
-        Pause
-    }
-
-
-    public MenuStates menuState;
-
-    #endregion
-
     private void Awake()
     {
         //If the instance doesnt exist, then this is the instance, otherwise destroy the imposter!
@@ -50,6 +27,28 @@ public class MenuHandler : MonoBehaviour
         CloseAllPanels();
 
     }
+
+    #region variables and Enum
+
+    public GameObject[] panels;
+
+    public enum MenuStates
+    {
+        MainMenu,
+        JoinGame,
+        HostGame,
+        DeckBuilder,
+        Options,
+        GamePlay,
+        Pause
+    }
+
+
+    public MenuStates menuState;
+
+    #endregion
+
+
 
     private void Start()
     {
