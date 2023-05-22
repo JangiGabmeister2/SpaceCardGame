@@ -18,13 +18,16 @@ public class MenuHandler : MonoBehaviour
 
     public enum MenuStates
     {
+        MainMenu,
         JoinGame,
         HostGame,
         DeckBuilder,
         Options,
         QuitGame,
+        GamePlay,
         Pause
     }
+
 
     public MenuStates menuState;
 
@@ -43,24 +46,37 @@ public class MenuHandler : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        CloseAllPanels();
+
     }
 
     private void Start()
     {
         CloseAllPanels();
+        if (menuState == MenuStates.MainMenu)
+        {
+            ChangePanel(0);
+        }
+
+
     }
 
     #region Button Functions
     public void JoinGame()
     {
         // Join a server
+        CloseAllPanels();
+        //MenuStates menuState = MenuStates.GamePlay;
         ChangeScene("Gameplay");
     }
 
     public void HostGame()
     {
         //Host a server
-        ChangeScene("GamePlay");
+        CloseAllPanels();
+        //MenuStates menuState = MenuStates.GamePlay;
+        ChangeScene("Gameplay");
     }
 
     /*public void DeckBuilder()
@@ -93,18 +109,23 @@ public class MenuHandler : MonoBehaviour
 
     public void ChangePanel(int value)
     {
+        //When applying Change Panel to a button, int value refers to enum index.
         menuState = (MenuStates)value;
 
 
         switch (menuState)
         {
+            case MenuStates.MainMenu:
 
+                CloseAllPanels();
+                panels[0].SetActive(true);
+                break;
 
             case MenuStates.JoinGame:
 
                 //Close all active panels, then active the Join Game panel.
                 CloseAllPanels();
-                panels[0].SetActive(true);
+                //panels[0].SetActive(true); May not need a panel
 
                 //if Connection is made:
                 //JoinGame();
@@ -115,7 +136,7 @@ public class MenuHandler : MonoBehaviour
 
                 //Close all active panels, then active the Host Game panel.
                 CloseAllPanels();
-                panels[1].SetActive(true);
+                //panels[1].SetActive(true); May not need a panel
 
                 //if Connection is made:
                 //HostGame();
@@ -129,7 +150,7 @@ public class MenuHandler : MonoBehaviour
 
                 CloseAllPanels();
                 //Close all active panels, then active the DeckBuilder panel.
-                panels[2].SetActive(true);
+                panels[3].SetActive(true);
 
                 break;
 
@@ -138,14 +159,25 @@ public class MenuHandler : MonoBehaviour
 
                 CloseAllPanels();
                 //Close all active panels, then active the DeckBuilder panel.
-                panels[3].SetActive(true);
+                panels[4].SetActive(true);
+
+                break;
+
+            case MenuStates.GamePlay:
+                CloseAllPanels();
+
+                break;
+
+            case MenuStates.Pause:
+                CloseAllPanels();
+                panels[5].SetActive(true);
 
                 break;
 
 
             default:
                 //Display only the main Menu
-                CloseAllPanels();
+                Debug.Log("Something went wrong");
 
                 break;
         }
@@ -166,14 +198,22 @@ public class MenuHandler : MonoBehaviour
     {
         //Save prefs?
         CloseAllPanels();
+        panels[0].SetActive(true);
     }
 
     public void DeckBuilderConfirmButton()
     {
         //Save deck
         CloseAllPanels();
+        panels[0].SetActive(true);
+    }
+
+    public void ForfeitGame()
+    {
+        //Concede, Morale = 0
     }
 
 
-
 }
+
+
