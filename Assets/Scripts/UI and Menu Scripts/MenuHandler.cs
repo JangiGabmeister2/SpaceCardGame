@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using static MenuHandler;
 
 public class MenuHandler : MonoBehaviour
@@ -31,6 +30,14 @@ public class MenuHandler : MonoBehaviour
     #region variables and Enum
 
     public GameObject[] panels;
+    public Button pauseButton;
+    public Button returnToGame;
+    public Button returnToMenu;
+
+    public GameObject gameplayUI;
+    public GameObject overlay;
+
+    public bool isInGame;
 
     public enum MenuStates
     {
@@ -39,7 +46,7 @@ public class MenuHandler : MonoBehaviour
         HostGame,
         DeckBuilder,
         Options,
-        GamePlay,
+        Gameplay,
         Pause
     }
 
@@ -58,7 +65,9 @@ public class MenuHandler : MonoBehaviour
             ChangePanel(0);
         }
 
-
+        pauseButton.gameObject.SetActive(false);
+        returnToGame.gameObject.SetActive(false);
+        gameplayUI.gameObject.SetActive(false);
     }
 
     #region Button Functions
@@ -118,6 +127,7 @@ public class MenuHandler : MonoBehaviour
 
                 CloseAllPanels();
                 panels[0].SetActive(true);
+                isInGame = false;
                 break;
 
             case MenuStates.JoinGame:
@@ -155,21 +165,34 @@ public class MenuHandler : MonoBehaviour
 
             case MenuStates.Options:
 
-
+                pauseButton.gameObject.SetActive(false);
                 CloseAllPanels();
                 //Close all active panels, then active the DeckBuilder panel.
                 panels[4].SetActive(true);
 
+                if (isInGame)
+                {
+                    returnToGame.gameObject.SetActive(true);
+                    returnToMenu.gameObject.SetActive(false);
+
+                }
+
                 break;
 
-            case MenuStates.GamePlay:
+            case MenuStates.Gameplay:
                 CloseAllPanels();
+                pauseButton.gameObject.SetActive(true);
+                isInGame = true;
+                gameplayUI.gameObject.SetActive(true);
+                overlay.gameObject.SetActive(true);
 
                 break;
 
             case MenuStates.Pause:
                 CloseAllPanels();
                 panels[5].SetActive(true);
+                pauseButton.gameObject.SetActive(false);
+                overlay.gameObject.SetActive(false);
 
                 break;
 
