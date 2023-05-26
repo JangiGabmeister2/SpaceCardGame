@@ -62,7 +62,7 @@ public class MenuHandler : MonoBehaviour
     #endregion
 
 
-
+    
     private void Start()
     {
         CloseAllPanels();
@@ -79,6 +79,7 @@ public class MenuHandler : MonoBehaviour
 
     private void Update()
     {
+        //This was to just test the coin flip function
         if (Input.GetKeyDown(KeyCode.F))
         {
             CoinToss();
@@ -111,6 +112,7 @@ public class MenuHandler : MonoBehaviour
     {
         //Go to options Menu
     }*/
+    //This is the back button for the 'settings' menu
     public void MainMenuOptionsBackButton()
     {
         //Save prefs?
@@ -118,6 +120,7 @@ public class MenuHandler : MonoBehaviour
         panels[0].SetActive(true);
     }
 
+    //This button goes back to main menu and is supposed to save the deck.
     public void DeckBuilderConfirmButton()
     {
         //Save deck
@@ -141,6 +144,8 @@ public class MenuHandler : MonoBehaviour
 
     #region Panel Functions
 
+    //This function closes all panels in the panel array when navigating other panels.
+    //Usually declared first, followed by making the specific panel active that you are viewing.
     public void CloseAllPanels()
     {
         for (int i = 0; i < panels.Length; i++)
@@ -150,6 +155,8 @@ public class MenuHandler : MonoBehaviour
         }
     }
 
+    //Sets the UI and overlay as false so that nothing can be clicked once the game is lost.
+    //This function also will double for 'losing the game' 
     public void ForfeitGame()
     {
         //Concede or Morale = 0
@@ -167,6 +174,7 @@ public class MenuHandler : MonoBehaviour
         panels[6].SetActive(true);
     }
 
+    //Change panel wording is possibly unclear, this function allows button presses to assign a switch to a particular state.
     public void ChangePanel(int value)
     {
         //When applying Change Panel to a button, int value refers to enum index.
@@ -266,6 +274,7 @@ public class MenuHandler : MonoBehaviour
 
     #endregion
 
+    //This function is assigned to buttons such as Join / Host game etc, then the scene name is declared in the inspector.
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -274,6 +283,7 @@ public class MenuHandler : MonoBehaviour
 
     }
 
+    //This fucntion determines who will go first after starting a match.
     private void CoinToss()
     {
         int coinToss = Random.Range(0, 100);
