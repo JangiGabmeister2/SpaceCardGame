@@ -37,7 +37,12 @@ public class MenuHandler : MonoBehaviour
     public GameObject gameplayUI;
     public GameObject overlay;
 
+
+
+    public bool playerOneTurn;
+    public bool playerTwoTurn;
     public bool isInGame;
+    Timer timerClass;
 
     public enum MenuStates
     {
@@ -47,7 +52,8 @@ public class MenuHandler : MonoBehaviour
         DeckBuilder,
         Options,
         Gameplay,
-        Pause
+        Pause,
+        EndGame
     }
 
 
@@ -68,6 +74,15 @@ public class MenuHandler : MonoBehaviour
         pauseButton.gameObject.SetActive(false);
         returnToGame.gameObject.SetActive(false);
         gameplayUI.gameObject.SetActive(false);
+        timerClass = FindObjectOfType<Timer>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            CoinToss();
+        }
     }
 
     #region Button Functions
@@ -96,7 +111,27 @@ public class MenuHandler : MonoBehaviour
     {
         //Go to options Menu
     }*/
+    public void MainMenuOptionsBackButton()
+    {
+        //Save prefs?
+        CloseAllPanels();
+        panels[0].SetActive(true);
+    }
 
+    public void DeckBuilderConfirmButton()
+    {
+        //Save deck
+        CloseAllPanels();
+        panels[0].SetActive(true);
+    }
+
+    public void EndTurn()
+    {
+        //Change to enemy turn
+        timerClass.turnTimer = 15;
+
+        Debug.Log("Enemy turn now");
+    }
     public void QuitGame()
     {
         Application.Quit();
@@ -115,16 +150,34 @@ public class MenuHandler : MonoBehaviour
         }
     }
 
+    public void ForfeitGame()
+    {
+        //Concede or Morale = 0
+        gameplayUI.gameObject.SetActive(false);
+        overlay.gameObject.SetActive(false);
+        CloseAllPanels();
+        panels[7].SetActive(true);
+    }
+
+    public void WinGame()
+    {
+        gameplayUI.gameObject.SetActive(false);
+        overlay.gameObject.SetActive(false);
+        CloseAllPanels();
+        panels[6].SetActive(true);
+    }
+
     public void ChangePanel(int value)
     {
         //When applying Change Panel to a button, int value refers to enum index.
         menuState = (MenuStates)value;
 
-
         switch (menuState)
         {
             case MenuStates.MainMenu:
 
+                gameplayUI.gameObject.SetActive(false);
+                overlay.gameObject.SetActive(false);
                 CloseAllPanels();
                 panels[0].SetActive(true);
                 isInGame = false;
@@ -185,6 +238,7 @@ public class MenuHandler : MonoBehaviour
                 isInGame = true;
                 gameplayUI.gameObject.SetActive(true);
                 overlay.gameObject.SetActive(true);
+                timerClass.timerOn = true;
 
                 break;
 
@@ -193,6 +247,10 @@ public class MenuHandler : MonoBehaviour
                 panels[5].SetActive(true);
                 pauseButton.gameObject.SetActive(false);
                 overlay.gameObject.SetActive(false);
+
+                break;
+
+            case MenuStates.EndGame:
 
                 break;
 
@@ -216,24 +274,28 @@ public class MenuHandler : MonoBehaviour
 
     }
 
-    public void MainMenuOptionsBackButton()
+    private void CoinToss()
     {
-        //Save prefs?
-        CloseAllPanels();
-        panels[0].SetActive(true);
+        int coinToss = Random.Range(0, 100);
+
+        if (coinToss <= 50)
+        {
+            playerOneTurn = true;
+            playerTwoTurn = false;
+
+            Debug.Log("player one turn");
+        }
+        else
+        {
+            playerOneTurn = false;
+            playerTwoTurn = true;
+            Debug.Log("player two turn");
+        }
+
+        Debug.Log(coinToss);
     }
 
-    public void DeckBuilderConfirmButton()
-    {
-        //Save deck
-        CloseAllPanels();
-        panels[0].SetActive(true);
-    }
 
-    public void ForfeitGame()
-    {
-        //Concede, Morale = 0
-    }
 
 
 }
