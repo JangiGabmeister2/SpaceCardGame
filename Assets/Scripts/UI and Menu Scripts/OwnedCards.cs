@@ -24,26 +24,46 @@ public class OwnedCards : MonoBehaviour
     //public int maxCards = 10; // For now
 
     public GameObject[] ownedCards;
+    public Transform[] cardPlacements;
+
+    public DeckBuild deckBuildClass;
+
 
 
     private void Start()
     {
+        
+        deckBuildClass = FindObjectOfType<DeckBuild>();
         SpawnOwnedCards();
     }
 
+
+
     public void SpawnOwnedCards()
     {
-        
-        Instantiate(ownedCards[0], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[1], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[2], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[3], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[4], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[5], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[6], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[7], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[8], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[9], transform.position, Quaternion.identity, transform.parent);
+
+        Instantiate(ownedCards[0], cardPlacements[0]);
+        Instantiate(ownedCards[1], cardPlacements[1]);
+        Instantiate(ownedCards[2], cardPlacements[2]);
+        Instantiate(ownedCards[3], cardPlacements[3]);
+        Instantiate(ownedCards[4], cardPlacements[4]);
+        Instantiate(ownedCards[5], cardPlacements[5]);
+        Instantiate(ownedCards[6], cardPlacements[6]);
+        Instantiate(ownedCards[7], cardPlacements[7]);
+        Instantiate(ownedCards[8], cardPlacements[8]);
+
+        /*Instantiate(ownedCards[0], cardPlacements);
+        Instantiate(ownedCards[1], cardPlacements);
+        Instantiate(ownedCards[2], cardPlacements);
+        Instantiate(ownedCards[3], cardPlacements);
+        Instantiate(ownedCards[4], cardPlacements);
+        Instantiate(ownedCards[5], cardPlacements);
+        Instantiate(ownedCards[6], cardPlacements);
+        Instantiate(ownedCards[7], cardPlacements);
+        Instantiate(ownedCards[8], cardPlacements);
+        Instantiate(ownedCards[9], cardPlacements);*/
 
     }
+
+
 }

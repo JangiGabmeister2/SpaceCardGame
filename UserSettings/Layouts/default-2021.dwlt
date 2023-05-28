@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 83
+  controlID: 17
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 84
+  controlID: 102
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 85
+  controlID: 103
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -318,22 +318,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Prefab Card Test
+    - Assets/UI Assets/Card Tests
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Prefab Card Test
+  - Assets/UI Assets/Card Tests
   m_LastFoldersGridSize: -1
   m_LastProjectPath: G:\Unity\TAFE\SpaceCardGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a8a40000
-    m_LastClickedID: 42152
-    m_ExpandedIDs: 00000000de9d00005a9e00005e9e00008e9e000000ca9a3bffffff7f
+    m_SelectedIDs: 7a950000
+    m_LastClickedID: 38266
+    m_ExpandedIDs: 00000000206c0000226c0000246c0000266c0000da6d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -361,7 +361,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000de9d0000
+    m_ExpandedIDs: 00000000206c0000226c0000246c0000266c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -493,7 +493,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 905bffff9c5bffffee7bffff7483ffff8e85ffff50a6ffffa8b5ffffc2b9ffff6ac0ffffe6c0ffff08c1ffff5ac8ffffd2cfffffe2d0ffff00d5ffff8cd8ffff10dcfffff4ffffff4a9f00005aa00000bea00000c8a000006ca10000
+      m_ExpandedIDs: 10a0ffffe2b7ffffa0edfffffaeeffffd2f3ffff2efbfffff4ffffff186900001c690000ca690000566a0000ba6a0000c46a0000506b0000546b0000866b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -776,9 +776,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 755.70624, y: 255.126, z: 0}
+    m_Target: {x: 523.4931, y: 267.37402, z: 166.76349}
     speed: 2
-    m_Value: {x: 755.70624, y: 255.126, z: 0}
+    m_Value: {x: 523.4931, y: 267.37402, z: 166.76349}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -825,13 +825,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.042296644, y: -0.005395749, z: 0.00023093415, w: -0.99910295}
+    m_Target: {x: 0.01980326, y: 0.023985375, z: -0.0004758003, w: 0.9995583}
     speed: 2
-    m_Value: {x: -0.04229612, y: -0.005395682, z: 0.00023093128, w: -0.99909055}
+    m_Value: {x: 0.019802423, y: 0.023984363, z: -0.00047578022, w: 0.9995161}
   m_Size:
-    m_Target: 409.20505
+    m_Target: 425.6254
     speed: 2
-    m_Value: 409.20505
+    m_Value: 425.6254
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -853,7 +853,7 @@ MonoBehaviour:
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
-  m_SceneVisActive: 1
+  m_SceneVisActive: 0
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
 --- !u!114 &16
