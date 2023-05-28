@@ -8,8 +8,6 @@ public class AddToDeck : MonoBehaviour
     OwnedCards ownedCardsClass;
     DeckBuild deckBuildClass;
 
-    public GameObject cardDrop;
-
 
     private void Start()
     {

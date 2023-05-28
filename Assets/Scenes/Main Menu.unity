@@ -11474,9 +11474,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1145472489}
   - component: {fileID: 1145472493}
-  - component: {fileID: 1145472492}
   - component: {fileID: 1145472491}
   - component: {fileID: 1145472490}
+  - component: {fileID: 1145472494}
   m_Layer: 5
   m_Name: Deck Builder Positions
   m_TagString: Untagged
@@ -11562,50 +11562,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145472488}
   m_CullTransparentMesh: 1
---- !u!114 &1145472492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145472488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54087e406956799429a874379fcdd219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownedCards:
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  - {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
-  cardPlacements:
-  - {fileID: 652119513}
-  - {fileID: 892738105}
-  - {fileID: 1788729393}
-  - {fileID: 1586282692}
-  - {fileID: 1402382569}
-  - {fileID: 1445452489}
-  - {fileID: 1611597888}
-  - {fileID: 1975783825}
-  - {fileID: 1576998737}
-  - {fileID: 1014900582}
-  - {fileID: 1537133961}
-  - {fileID: 202820724}
-  - {fileID: 1363575239}
-  - {fileID: 764697058}
-  - {fileID: 1121409329}
-  - {fileID: 1302694497}
-  - {fileID: 42148989}
-  - {fileID: 1441582687}
-  - {fileID: 15036368}
-  - {fileID: 1739612911}
 --- !u!114 &1145472493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11632,6 +11588,40 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1145472494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145472488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 020f775ed8c39a648bee3d1ab51f17fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckBuildCards: []
+  deckBuildPos:
+  - {fileID: 652119513}
+  - {fileID: 892738105}
+  - {fileID: 1788729393}
+  - {fileID: 1586282692}
+  - {fileID: 1402382569}
+  - {fileID: 1445452489}
+  - {fileID: 1611597888}
+  - {fileID: 1975783825}
+  - {fileID: 1576998737}
+  - {fileID: 1014900582}
+  - {fileID: 1537133961}
+  - {fileID: 202820724}
+  - {fileID: 1363575239}
+  - {fileID: 764697058}
+  - {fileID: 1121409329}
+  - {fileID: 1302694497}
+  - {fileID: 42148989}
+  - {fileID: 1441582687}
+  - {fileID: 15036368}
+  - {fileID: 1739612911}
 --- !u!1 &1147529498
 GameObject:
   m_ObjectHideFlags: 0

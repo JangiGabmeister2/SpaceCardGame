@@ -26,13 +26,13 @@ public class OwnedCards : MonoBehaviour
     public GameObject[] ownedCards;
     public Transform[] cardPlacements;
 
-    public DeckBuild deckBuildClass;
+    DeckBuild deckBuildClass;
 
 
 
     private void Start()
     {
-        
+
         deckBuildClass = FindObjectOfType<DeckBuild>();
         SpawnOwnedCards();
     }
