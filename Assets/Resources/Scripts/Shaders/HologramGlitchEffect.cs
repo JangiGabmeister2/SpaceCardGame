@@ -7,7 +7,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class HologramGlitchEffect : MonoBehaviour
 {
-    private Material holoMaterial;
+    public Material holoMaterial;
 
     [Header("Texture")]
     public Vector2 hologramTextureTiling = new Vector2(1, 1);
@@ -26,7 +26,7 @@ public class HologramGlitchEffect : MonoBehaviour
 
     private void Start()
     {
-        holoMaterial = GetComponent<MeshRenderer>().materials[0];
+        GetComponent<MeshRenderer>().material = holoMaterial;
     }
 
     private void Update()
