@@ -10,26 +10,24 @@ public class SavingHandler : MonoBehaviour
     [Header("Player Lose Event")]
     public UnityEvent onMatchLoss;
 
-    private PlayerStats playerStats;
-
     private void Start()
     {
-        playerStats = GameObject.Find("localPlayer").GetComponent<PlayerStats>();
-
         onMatchWin.AddListener(IncreaseWinCount);
         onMatchLoss.AddListener(IncreaseLoseCount);
     }
 
-    public void SaveDeck()
+    public void SaveChosenDeck()
     {
-
+        //used in Deck Builder, after choosing a deck to play, saves deck to use for future matches
     }
 
     public void GetChosenDeck()
     {
-        
+        //before the match starts, gets deck data from each player's playerprefs
+        //if no deck was chosen (above), a default deck is automatically chosen
     }
 
+    //gets the player's level to display when joining servers and during matches
     public int GetPlayerLevel()
     {
         int level = PlayerPrefs.GetInt("player_level", 1);
@@ -37,9 +35,11 @@ public class SavingHandler : MonoBehaviour
         return level;
     }
 
+    //called at the end of each match
     public void GetPlayerValuesRemaining()
     {
-
+        //used for experience calculations
+        //the higher the health/morale at match end, the more experience gained
     }
 
     public int GetNumberOfCardsRemaining()
