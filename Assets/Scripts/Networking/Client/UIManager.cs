@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Networking.Client.Multiplayer;
 using Riptide;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,7 +47,7 @@ namespace Networking.Client
             portField.interactable = false;
             connectUI.SetActive(false);
 
-          NetworkManager.LocalInstance.Connect();
+          //NetworkManager.LocalInstance.Connect();
         }
 
         public void IPChange(string ip)
@@ -61,7 +57,7 @@ namespace Networking.Client
         public void PortChange(string port)
         {
             NetworkManager.LocalInstance.Port = port;
-            Networking.Server.Multiplayer.NetworkManager.NetworkManagerInstance.Port = ushort.Parse(port);
+            Server.Multiplayer.NetworkManager.NetworkManagerInstance.Port = ushort.Parse(port);
         }
         public void BackToMain()
         {
