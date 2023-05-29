@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class RemoveFromDeck : MonoBehaviour
 {
+    OwnedCards ownedCardsClass;
 
-    /// <summary>
-    /// The intention of this class is to remove any selected card from the deck builder.
-    /// Originally I setup a red square to have cards from the deck builder dragged onto the square and then release click to remove
-    /// it from the deck and add it back to the 'owned cards'
-    /// </summary>
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        ownedCardsClass = FindObjectOfType<OwnedCards>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ClearDeck()
     {
-        
+        //This isnt working to return the card count number
+        ownedCardsClass.cardCountPos1 = 2;
+        ownedCardsClass.cardCountPos2 = 2;
+
+
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
+
+
 }
