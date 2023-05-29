@@ -1,35 +1,31 @@
 using UnityEngine;
 
-
 [CreateAssetMenu(fileName = "New Unit", menuName = "CardData/UnitCard")]
-public class UnitCard : BaseCard
+public class UnitCard : ScriptableObject
 {
+    //Card ID <faction><card num> e.g.<2><05> = 205
+    public int cardID;
+    //the basic data type for the card that both units and effects will draw from
+    public string cardName;
+    //the card's name
+    public Sprite cardArt;
+    //Our two options for damagetype
     public enum attackType
     {
         Kinetic, Energy
     }
-    //Our two options for damagetype
-    [SerializeField]
-    private attackType thisAttack;
     //declares what this specific spawned card's attack type is
-    public enum shieldType
-    {
-        Kinetic, Energy
-    }
-    //our two options for shield types
-    [SerializeField]
-    private shieldType thisShield;
-    //declares what this specific card's shield type is
+    [SerializeField] private attackType _attackType;
 
+    //Stats
     public int attack;
-    //our attack stat
+    public int cost;
     public int shield;
-    //our shield stat
-    public int health;
     //this will be the health stat that we add or subtract from
-    public int maxHealth;
+    public int hull;
     //the unit's starting health, when instantiating, make sure the 'health' int is set to this.
-    public override void Play()
+    public int maxHull;
+    public void Play()
     {
 
     }
