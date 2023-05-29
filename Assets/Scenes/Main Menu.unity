@@ -209,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18449974}
   m_Layer: 5
-  m_Name: Position 1 (7)
+  m_Name: Position 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,7 +562,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 37696091}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos9ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &37696091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,7 +898,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 65391461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos10FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &65391461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,7 +1206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141746773}
   m_Layer: 5
-  m_Name: Position 1 (10)
+  m_Name: Position 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2587,7 +2611,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 251223667}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos4FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &251223667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3361,7 +3397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 334129408}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos5FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &334129408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3410,7 +3458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 373712610}
   m_Layer: 5
-  m_Name: Position 1 (17)
+  m_Name: Position 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3762,7 +3810,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 430582298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos11ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &430582298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3964,7 +4024,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 445512922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos6ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &445512922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4406,7 +4478,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 473706742}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos7FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &473706742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4916,7 +5000,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 555237022}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos15ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &555237022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5273,7 +5369,6 @@ MonoBehaviour:
   builtDeck: []
   builtCardPlacements: []
   deckPlacements: {fileID: 1996499802}
-  deckContainer: {fileID: 1996499801}
   removeFromDeckClass: {fileID: 1996499806}
   pos1: {fileID: 1108077879}
   pos2: {fileID: 2114656058}
@@ -5290,11 +5385,6 @@ MonoBehaviour:
   pos13: {fileID: 1771751628}
   pos14: {fileID: 2139684200}
   pos15: {fileID: 1646276894}
-  pos16: {fileID: 1119623396}
-  pos17: {fileID: 1702383687}
-  pos18: {fileID: 373712610}
-  pos19: {fileID: 1086823949}
-  pos20: {fileID: 2121629034}
   cardCountPos1: 0
   cardCountPos2: 0
   cardCountPos3: 0
@@ -5310,11 +5400,6 @@ MonoBehaviour:
   cardCountPos13: 0
   cardCountPos14: 0
   cardCountPos15: 0
-  cardCountPos16: 0
-  cardCountPos17: 0
-  cardCountPos18: 0
-  cardCountPos19: 0
-  cardCountPos20: 0
   cardCountTextPos1: {fileID: 434975509}
   cardCountTextPos2: {fileID: 736737203}
   cardCountTextPos3: {fileID: 464153501}
@@ -5330,71 +5415,66 @@ MonoBehaviour:
   cardCountTextPos13: {fileID: 1595622497}
   cardCountTextPos14: {fileID: 2032524801}
   cardCountTextPos15: {fileID: 537866214}
-  cardCountTextPos16: {fileID: 1345375844}
-  cardCountTextPos17: {fileID: 1901988783}
-  cardCountTextPos18: {fileID: 1338778560}
-  cardCountTextPos19: {fileID: 796169876}
-  cardCountTextPos20: {fileID: 648642240}
   cardSwarmer1: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
   cardSwarmer2: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
-  cardSwarmer3: {fileID: 0}
-  cardSwarmer4: {fileID: 0}
-  cardSwarmer5: {fileID: 0}
-  cardSwarmer6: {fileID: 0}
-  cardSwarmer7: {fileID: 0}
-  cardSwarmer8: {fileID: 0}
-  cardSwarmer9: {fileID: 0}
-  cardSwarmer10: {fileID: 0}
-  cardSwarmer11: {fileID: 0}
-  cardSwarmer12: {fileID: 0}
-  cardSwarmer13: {fileID: 0}
-  cardSwarmer14: {fileID: 0}
-  cardSwarmer15: {fileID: 0}
-  cardSwarmer16: {fileID: 0}
-  cardSwarmer17: {fileID: 0}
-  cardSwarmer18: {fileID: 0}
-  cardSwarmer19: {fileID: 0}
-  cardSwarmer20: {fileID: 0}
+  cardSwarmer3: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer4: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
+  cardSwarmer5: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer6: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
+  cardSwarmer7: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer8: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
+  cardSwarmer9: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer10: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
+  cardSwarmer11: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer12: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
+  cardSwarmer13: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer14: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
+  cardSwarmer15: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer16: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
+  cardSwarmer17: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer18: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
+  cardSwarmer19: {fileID: 1957720338588592926, guid: 0574fc77881980249956bda600c92453, type: 3}
+  cardSwarmer20: {fileID: 2375348769345076096, guid: 0e49c851eb734264db2378c19889b1ff, type: 3}
   cardIronSide1: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
   cardIronSide2: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
-  cardIronSide3: {fileID: 0}
-  cardIronSide4: {fileID: 0}
-  cardIronSide5: {fileID: 0}
-  cardIronSide6: {fileID: 0}
-  cardIronSide7: {fileID: 0}
-  cardIronSide8: {fileID: 0}
-  cardIronSide9: {fileID: 0}
-  cardIronSide10: {fileID: 0}
-  cardIronSide11: {fileID: 0}
-  cardIronSide12: {fileID: 0}
-  cardIronSide13: {fileID: 0}
-  cardIronSide14: {fileID: 0}
-  cardIronSide15: {fileID: 0}
-  cardIronSide16: {fileID: 0}
-  cardIronSide17: {fileID: 0}
-  cardIronSide18: {fileID: 0}
-  cardIronSide19: {fileID: 0}
-  cardIronSide20: {fileID: 0}
+  cardIronSide3: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide4: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
+  cardIronSide5: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide6: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
+  cardIronSide7: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide8: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
+  cardIronSide9: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide10: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
+  cardIronSide11: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide12: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
+  cardIronSide13: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide14: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
+  cardIronSide15: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide16: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
+  cardIronSide17: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide18: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
+  cardIronSide19: {fileID: 742668777614135241, guid: 3482b3200964c464b8c7e0875a199375, type: 3}
+  cardIronSide20: {fileID: 1897291503744347957, guid: a1076262639a90a46a93d52399ac9eaa, type: 3}
   cardMidling1: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
   cardMidling2: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
-  cardMidling3: {fileID: 0}
-  cardMidling4: {fileID: 0}
-  cardMidling5: {fileID: 0}
-  cardMidling6: {fileID: 0}
-  cardMidling7: {fileID: 0}
-  cardMidling8: {fileID: 0}
-  cardMidling9: {fileID: 0}
-  cardMidling10: {fileID: 0}
-  cardMidling11: {fileID: 0}
-  cardMidling12: {fileID: 0}
-  cardMidling13: {fileID: 0}
-  cardMidling14: {fileID: 0}
-  cardMidling15: {fileID: 0}
-  cardMidling16: {fileID: 0}
-  cardMidling17: {fileID: 0}
-  cardMidling18: {fileID: 0}
-  cardMidling19: {fileID: 0}
-  cardMidling20: {fileID: 0}
+  cardMidling3: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling4: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
+  cardMidling5: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling6: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
+  cardMidling7: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling8: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
+  cardMidling9: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling10: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
+  cardMidling11: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling12: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
+  cardMidling13: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling14: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
+  cardMidling15: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling16: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
+  cardMidling17: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling18: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
+  cardMidling19: {fileID: 8175255068402176765, guid: 322b0b8f889c3ad4cb05fe4fc89f113c, type: 3}
+  cardMidling20: {fileID: 1974010723935439219, guid: 65df630012847a44bab2d8e776d3d5fd, type: 3}
   factionChange: 0
 --- !u!114 &633221690
 MonoBehaviour:
@@ -5543,7 +5623,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 645138277}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos8FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &645138277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5867,7 +5959,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 664938986}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos4ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &664938986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5989,7 +6093,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 701339337}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos12FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &701339337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6357,7 +6473,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 715981881}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos11FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &715981881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6969,7 +7097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 817728433}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos5ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &817728433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7091,7 +7231,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 819233611}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos10ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &819233611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7709,7 +7861,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 888260140}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos9FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &888260140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7930,7 +8094,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942547713}
   m_Layer: 5
-  m_Name: Position 1 (6)
+  m_Name: Position 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8053,7 +8217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 965810194}
   m_Layer: 5
-  m_Name: Position 1 (2)
+  m_Name: Position 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8704,7 +8868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1086823949}
   m_Layer: 5
-  m_Name: Position 1 (18)
+  m_Name: Position 19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9339,7 +9503,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1115301389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos3ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1115301389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9388,7 +9564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1119623396}
   m_Layer: 5
-  m_Name: Position 1 (15)
+  m_Name: Position 16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10015,7 +10191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1176585246}
   m_Layer: 5
-  m_Name: Position 1 (9)
+  m_Name: Position 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11647,7 +11823,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1315931434}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos8ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1315931434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12231,7 +12419,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1358646004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos7ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1358646004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13053,7 +13253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1462007109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos6FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1462007109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13102,7 +13314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1464132560}
   m_Layer: 5
-  m_Name: Position 1 (5)
+  m_Name: Position 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13214,7 +13426,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1478940673}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos12ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1478940673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13572,7 +13796,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1521477166}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos13ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1521477166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13840,7 +14076,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1525165771}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos15FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1525165771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14428,7 +14676,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1599076142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: AddCardPos14ToDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1599076142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14477,7 +14737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1600431322}
   m_Layer: 5
-  m_Name: Position 1 (3)
+  m_Name: Position 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14719,7 +14979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641503721}
   m_Layer: 5
-  m_Name: Position 1 (11)
+  m_Name: Position 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14758,7 +15018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646276894}
   m_Layer: 5
-  m_Name: Position 1 (14)
+  m_Name: Position 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15171,7 +15431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702383687}
   m_Layer: 5
-  m_Name: Position 1 (16)
+  m_Name: Position 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15683,7 +15943,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1741214324}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos13FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1741214324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15770,7 +16042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1771751628}
   m_Layer: 5
-  m_Name: Position 1 (12)
+  m_Name: Position 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15882,7 +16154,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1805219167}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos14FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1805219167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16362,7 +16646,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1887195843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633221689}
+        m_TargetAssemblyTypeName: OwnedCards, Assembly-CSharp
+        m_MethodName: RemoveCardPos3FromDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1887195843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16902,7 +17198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959849923}
   m_Layer: 5
-  m_Name: Position 1 (4)
+  m_Name: Position 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16945,7 +17241,7 @@ GameObject:
   - component: {fileID: 1996499803}
   - component: {fileID: 1996499806}
   m_Layer: 5
-  m_Name: Deck Builder Container
+  m_Name: Deck Builder Container(Script here)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18050,7 +18346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2090275792}
   m_Layer: 5
-  m_Name: Position 1 (8)
+  m_Name: Position 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18169,7 +18465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2114656058}
   m_Layer: 5
-  m_Name: Position 1 (1)
+  m_Name: Position 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18208,7 +18504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121629034}
   m_Layer: 5
-  m_Name: Position 1 (19)
+  m_Name: Position 20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18360,7 +18656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2139684200}
   m_Layer: 5
-  m_Name: Position 1 (13)
+  m_Name: Position 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

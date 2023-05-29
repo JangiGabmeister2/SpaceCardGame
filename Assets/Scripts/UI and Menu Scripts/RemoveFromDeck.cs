@@ -14,9 +14,12 @@ public class RemoveFromDeck : MonoBehaviour
 
     public void ClearDeck()
     {
-        //This isnt working to return the card count number
+ 
         ownedCardsClass.cardCountPos1 = 2;
         ownedCardsClass.cardCountPos2 = 2;
+
+        ownedCardsClass.cardCountTextPos1.text = ownedCardsClass.cardCountPos1.ToString();
+        ownedCardsClass.cardCountTextPos2.text = ownedCardsClass.cardCountPos2.ToString();
 
 
         foreach (Transform child in transform)

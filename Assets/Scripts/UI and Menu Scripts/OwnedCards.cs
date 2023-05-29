@@ -13,7 +13,7 @@ public class OwnedCards : MonoBehaviour
     public List<GameObject> builtDeck = new List<GameObject>();
     public List<Transform> builtCardPlacements = new List<Transform>();
     public Transform deckPlacements;
-    public GameObject deckContainer;
+    private int CardCountMax;
 
     public RemoveFromDeck removeFromDeckClass;
 
@@ -36,11 +36,7 @@ public class OwnedCards : MonoBehaviour
     public Transform pos13;
     public Transform pos14;
     public Transform pos15;
-    public Transform pos16;
-    public Transform pos17;
-    public Transform pos18;
-    public Transform pos19;
-    public Transform pos20;
+
 
 
 
@@ -63,11 +59,7 @@ public class OwnedCards : MonoBehaviour
     public int cardCountPos13;
     public int cardCountPos14;
     public int cardCountPos15;
-    public int cardCountPos16;
-    public int cardCountPos17;
-    public int cardCountPos18;
-    public int cardCountPos19;
-    public int cardCountPos20;
+
 
 
     public Text cardCountTextPos1;
@@ -85,11 +77,7 @@ public class OwnedCards : MonoBehaviour
     public Text cardCountTextPos13;
     public Text cardCountTextPos14;
     public Text cardCountTextPos15;
-    public Text cardCountTextPos16;
-    public Text cardCountTextPos17;
-    public Text cardCountTextPos18;
-    public Text cardCountTextPos19;
-    public Text cardCountTextPos20;
+
 
 
 
@@ -168,13 +156,10 @@ public class OwnedCards : MonoBehaviour
 
     #endregion
 
-    #region owned cards
-
-
-    #endregion
 
     private void Start()
     {
+        CardCountMax = 0;
         AddPositionsToList();
         AddCardCount();
         ChangeFaction(0);
@@ -367,6 +352,19 @@ public class OwnedCards : MonoBehaviour
     {
         ownedCardsSwarmer.Add(cardSwarmer1);
         ownedCardsSwarmer.Add(cardSwarmer2);
+        ownedCardsSwarmer.Add(cardSwarmer3);
+        ownedCardsSwarmer.Add(cardSwarmer4);
+        ownedCardsSwarmer.Add(cardSwarmer5);
+        ownedCardsSwarmer.Add(cardSwarmer6);
+        ownedCardsSwarmer.Add(cardSwarmer7);
+        ownedCardsSwarmer.Add(cardSwarmer8);
+        ownedCardsSwarmer.Add(cardSwarmer9);
+        ownedCardsSwarmer.Add(cardSwarmer10);
+        ownedCardsSwarmer.Add(cardSwarmer11);
+        ownedCardsSwarmer.Add(cardSwarmer12);
+        ownedCardsSwarmer.Add(cardSwarmer13);
+        ownedCardsSwarmer.Add(cardSwarmer14);
+        ownedCardsSwarmer.Add(cardSwarmer15);
 
     }
 
@@ -374,12 +372,39 @@ public class OwnedCards : MonoBehaviour
     {
         ownedCardsIronSide.Add(cardIronSide1);
         ownedCardsIronSide.Add(cardIronSide2);
+        ownedCardsIronSide.Add(cardIronSide3);
+        ownedCardsIronSide.Add(cardIronSide4);
+        ownedCardsIronSide.Add(cardIronSide5);
+        ownedCardsIronSide.Add(cardIronSide6);
+        ownedCardsIronSide.Add(cardIronSide7);
+        ownedCardsIronSide.Add(cardIronSide8);
+        ownedCardsIronSide.Add(cardIronSide9);
+        ownedCardsIronSide.Add(cardIronSide10);
+        ownedCardsIronSide.Add(cardIronSide11);
+        ownedCardsIronSide.Add(cardIronSide12);
+        ownedCardsIronSide.Add(cardIronSide13);
+        ownedCardsIronSide.Add(cardIronSide14);
+        ownedCardsIronSide.Add(cardIronSide15);
     }
 
     public void AddMidlingCardsToOwned()
     {
         ownedCardsMidling.Add(cardMidling1);
         ownedCardsMidling.Add(cardMidling2);
+        ownedCardsMidling.Add(cardMidling3);
+        ownedCardsMidling.Add(cardMidling4);
+        ownedCardsMidling.Add(cardMidling5);
+        ownedCardsMidling.Add(cardMidling6);
+        ownedCardsMidling.Add(cardMidling7);
+        ownedCardsMidling.Add(cardMidling8);
+        ownedCardsMidling.Add(cardMidling9);
+        ownedCardsMidling.Add(cardMidling10);
+        ownedCardsMidling.Add(cardMidling11);
+        ownedCardsMidling.Add(cardMidling12);
+        ownedCardsMidling.Add(cardMidling13);
+        ownedCardsMidling.Add(cardMidling14);
+        ownedCardsMidling.Add(cardMidling15);
+
     }
 
     public void RemoveCards()
@@ -394,27 +419,30 @@ public class OwnedCards : MonoBehaviour
 
     public void AddCardPos1ToDeck()
     {
-        if (cardCountPos1 > 0 && factionChange == Faction.Swarmer)
+        if (cardCountPos1 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
         {
             GameObject card1 = Instantiate(ownedCardsSwarmer[0], deckPlacements);
             card1.name = "Card 1 Swarmer";
             cardCountPos1 -= 1;
+            CardCountMax += 1;
             builtDeck.Add(cardSwarmer1);
             cardCountTextPos1.text = cardCountPos1.ToString();
         }
-        if(cardCountPos1 > 0 && factionChange == Faction.IronSide)
+        if(cardCountPos1 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
         {
             GameObject card1 = Instantiate(ownedCardsIronSide[0], deckPlacements);
             card1.name = "Card 1 IronSide";
             cardCountPos1 -= 1;
+            CardCountMax += 1;
             builtDeck.Add(cardIronSide1);
             cardCountTextPos1.text = cardCountPos1.ToString();
         }
-        if (cardCountPos1 > 0 && factionChange == Faction.Midling)
+        if (cardCountPos1 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
         {
             GameObject card1 = Instantiate(ownedCardsMidling[0], deckPlacements);
             card1.name = "Card 1 Midling";
             cardCountPos1 -= 1;
+            CardCountMax += 1;
             builtDeck.Add(cardMidling1);
             cardCountTextPos1.text = cardCountPos1.ToString();
         }
@@ -426,27 +454,30 @@ public class OwnedCards : MonoBehaviour
     public void AddCardPos2ToDeck()
     {
 
-        if (cardCountPos2 > 0 && factionChange == Faction.Swarmer)
+        if (cardCountPos2 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
         {
             GameObject card2 = Instantiate(ownedCardsSwarmer[1], deckPlacements);
             card2.name = "Card 2 Swarmer";
             cardCountPos2 -= 1;
+            CardCountMax += 1;
             builtDeck.Add(cardSwarmer2);
             cardCountTextPos2.text = cardCountPos2.ToString();
         }
-        if (cardCountPos2 > 0 && factionChange == Faction.IronSide)
+        if (cardCountPos2 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
         {
             GameObject card2 = Instantiate(ownedCardsIronSide[1], deckPlacements);
             card2.name = "Card 2 IronSide";
             cardCountPos2 -= 1;
+            CardCountMax += 1;
             builtDeck.Add(cardIronSide2);
             cardCountTextPos2.text = cardCountPos2.ToString();
         }
-        if (cardCountPos2 > 0 && factionChange == Faction.Midling)
+        if (cardCountPos2 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
         {
             GameObject card2 = Instantiate(ownedCardsMidling[1], deckPlacements);
             card2.name = "Card 2 Midling";
             cardCountPos2 -= 1;
+            CardCountMax += 1;
             builtDeck.Add(cardMidling2);
             cardCountTextPos2.text = cardCountPos2.ToString();
         }
@@ -454,26 +485,475 @@ public class OwnedCards : MonoBehaviour
 
     }
 
+    public void AddCardPos3ToDeck()
+    {
+
+        if (cardCountPos3 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card3 = Instantiate(ownedCardsSwarmer[2], deckPlacements);
+            card3.name = "Card 3 Swarmer";
+            cardCountPos3 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer3);
+            cardCountTextPos2.text = cardCountPos2.ToString();
+        }
+        if (cardCountPos3 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card3 = Instantiate(ownedCardsIronSide[2], deckPlacements);
+            card3.name = "Card 3 IronSide";
+            cardCountPos3 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide3);
+            cardCountTextPos3.text = cardCountPos3.ToString();
+        }
+        if (cardCountPos3 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card3 = Instantiate(ownedCardsMidling[2], deckPlacements);
+            card3.name = "Card 3 Midling";
+            cardCountPos3 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling3);
+            cardCountTextPos3.text = cardCountPos3.ToString();
+        }
+        else return;
+
+    }
+    public void AddCardPos4ToDeck()
+    {
+
+        if (cardCountPos4 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card4 = Instantiate(ownedCardsSwarmer[3], deckPlacements);
+            card4.name = "Card 4 Swarmer";
+            cardCountPos4 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer4);
+            cardCountTextPos4.text = cardCountPos4.ToString();
+        }
+        if (cardCountPos4 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card4 = Instantiate(ownedCardsIronSide[3], deckPlacements);
+            card4.name = "Card 4 IronSide";
+            cardCountPos4 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide4);
+            cardCountTextPos4.text = cardCountPos4.ToString();
+        }
+        if (cardCountPos4 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card4 = Instantiate(ownedCardsMidling[3], deckPlacements);
+            card4.name = "Card 4 Midling";
+            cardCountPos4 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling4);
+            cardCountTextPos4.text = cardCountPos4.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos5ToDeck()
+    {
+
+        if (cardCountPos5 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card5 = Instantiate(ownedCardsSwarmer[4], deckPlacements);
+            card5.name = "Card 5 Swarmer";
+            cardCountPos5 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer5);
+            cardCountTextPos5.text = cardCountPos5.ToString();
+        }
+        if (cardCountPos5 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card5 = Instantiate(ownedCardsIronSide[4], deckPlacements);
+            card5.name = "Card 5 IronSide";
+            cardCountPos5 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide5);
+            cardCountTextPos5.text = cardCountPos5.ToString();
+        }
+        if (cardCountPos5 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card5 = Instantiate(ownedCardsMidling[4], deckPlacements);
+            card5.name = "Card 5 Midling";
+            cardCountPos5 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling5);
+            cardCountTextPos5.text = cardCountPos5.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos6ToDeck()
+    {
+
+        if (cardCountPos6 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card6 = Instantiate(ownedCardsSwarmer[5], deckPlacements);
+            card6.name = "Card 6 Swarmer";
+            cardCountPos6 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer6);
+            cardCountTextPos6.text = cardCountPos6.ToString();
+        }
+        if (cardCountPos5 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card6 = Instantiate(ownedCardsIronSide[5], deckPlacements);
+            card6.name = "Card 6 IronSide";
+            cardCountPos6 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide6);
+            cardCountTextPos6.text = cardCountPos6.ToString();
+        }
+        if (cardCountPos6 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card6 = Instantiate(ownedCardsMidling[5], deckPlacements);
+            card6.name = "Card 6 Midling";
+            cardCountPos6 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling6);
+            cardCountTextPos6.text = cardCountPos6.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos7ToDeck()
+    {
+
+        if (cardCountPos7 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card7 = Instantiate(ownedCardsSwarmer[6], deckPlacements);
+            card7.name = "Card 7 Swarmer";
+            cardCountPos7 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer7);
+            cardCountTextPos7.text = cardCountPos7.ToString();
+        }
+        if (cardCountPos7 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card7 = Instantiate(ownedCardsIronSide[6], deckPlacements);
+            card7.name = "Card 7 IronSide";
+            cardCountPos7 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide7);
+            cardCountTextPos7.text = cardCountPos7.ToString();
+        }
+        if (cardCountPos7 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card7 = Instantiate(ownedCardsMidling[6], deckPlacements);
+            card7.name = "Card 7 Midling";
+            cardCountPos7 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling7);
+            cardCountTextPos7.text = cardCountPos7.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos8ToDeck()
+    {
+
+        if (cardCountPos8 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card8 = Instantiate(ownedCardsSwarmer[7], deckPlacements);
+            card8.name = "Card 8 Swarmer";
+            cardCountPos8 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer8);
+            cardCountTextPos8.text = cardCountPos8.ToString();
+        }
+        if (cardCountPos8 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card8 = Instantiate(ownedCardsIronSide[7], deckPlacements);
+            card8.name = "Card 8 IronSide";
+            cardCountPos8 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide8);
+            cardCountTextPos8.text = cardCountPos8.ToString();
+        }
+        if (cardCountPos8 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card8 = Instantiate(ownedCardsMidling[7], deckPlacements);
+            card8.name = "Card 8 Midling";
+            cardCountPos8 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling8);
+            cardCountTextPos8.text = cardCountPos8.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos9ToDeck()
+    {
+
+        if (cardCountPos9 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card9 = Instantiate(ownedCardsSwarmer[8], deckPlacements);
+            card9.name = "Card 9 Swarmer";
+            cardCountPos9 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer8);
+            cardCountTextPos9.text = cardCountPos9.ToString();
+        }
+        if (cardCountPos9 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card9 = Instantiate(ownedCardsIronSide[8], deckPlacements);
+            card9.name = "Card 9 IronSide";
+            cardCountPos9 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide9);
+            cardCountTextPos9.text = cardCountPos9.ToString();
+        }
+        if (cardCountPos9 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card9 = Instantiate(ownedCardsMidling[8], deckPlacements);
+            card9.name = "Card 9 Midling";
+            cardCountPos9 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling9);
+            cardCountTextPos9.text = cardCountPos9.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos10ToDeck()
+    {
+
+        if (cardCountPos10 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card10 = Instantiate(ownedCardsSwarmer[9], deckPlacements);
+            card10.name = "Card 10 Swarmer";
+            cardCountPos10 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer10);
+            cardCountTextPos10.text = cardCountPos10.ToString();
+        }
+        if (cardCountPos10 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card10 = Instantiate(ownedCardsIronSide[9], deckPlacements);
+            card10.name = "Card 10 IronSide";
+            cardCountPos10 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide10);
+            cardCountTextPos10.text = cardCountPos10.ToString();
+        }
+        if (cardCountPos10 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card10 = Instantiate(ownedCardsMidling[9], deckPlacements);
+            card10.name = "Card 10 Midling";
+            cardCountPos10 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling10);
+            cardCountTextPos10.text = cardCountPos10.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos11ToDeck()
+    {
+
+        if (cardCountPos11 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card11 = Instantiate(ownedCardsSwarmer[10], deckPlacements);
+            card11.name = "Card 11 Swarmer";
+            cardCountPos11 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer11);
+            cardCountTextPos11.text = cardCountPos11.ToString();
+        }
+        if (cardCountPos11 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card11 = Instantiate(ownedCardsIronSide[10], deckPlacements);
+            card11.name = "Card 11 IronSide";
+            cardCountPos11 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide11);
+            cardCountTextPos11.text = cardCountPos11.ToString();
+        }
+        if (cardCountPos11 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card11 = Instantiate(ownedCardsMidling[10], deckPlacements);
+            card11.name = "Card 11 Midling";
+            cardCountPos11 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling11);
+            cardCountTextPos11.text = cardCountPos11.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos12ToDeck()
+    {
+
+        if (cardCountPos12 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card12 = Instantiate(ownedCardsSwarmer[11], deckPlacements);
+            card12.name = "Card 12 Swarmer";
+            cardCountPos12 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer12);
+            cardCountTextPos12.text = cardCountPos12.ToString();
+        }
+        if (cardCountPos12 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card12 = Instantiate(ownedCardsIronSide[11], deckPlacements);
+            card12.name = "Card 12 IronSide";
+            cardCountPos12 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide12);
+            cardCountTextPos12.text = cardCountPos12.ToString();
+        }
+        if (cardCountPos12 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card12 = Instantiate(ownedCardsMidling[11], deckPlacements);
+            card12.name = "Card 12 Midling";
+            cardCountPos12 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling12);
+            cardCountTextPos12.text = cardCountPos12.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos13ToDeck()
+    {
+
+        if (cardCountPos13 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card13 = Instantiate(ownedCardsSwarmer[12], deckPlacements);
+            card13.name = "Card 13 Swarmer";
+            cardCountPos13 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer13);
+            cardCountTextPos13.text = cardCountPos13.ToString();
+        }
+        if (cardCountPos13 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card13 = Instantiate(ownedCardsIronSide[12], deckPlacements);
+            card13.name = "Card 13 IronSide";
+            cardCountPos13 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide13);
+            cardCountTextPos13.text = cardCountPos13.ToString();
+        }
+        if (cardCountPos13 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card13 = Instantiate(ownedCardsMidling[12], deckPlacements);
+            card13.name = "Card 13 Midling";
+            cardCountPos13 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling13);
+            cardCountTextPos13.text = cardCountPos13.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos14ToDeck()
+    {
+
+        if (cardCountPos14 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card14 = Instantiate(ownedCardsSwarmer[13], deckPlacements);
+            card14.name = "Card 14 Swarmer";
+            cardCountPos14 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer14);
+            cardCountTextPos14.text = cardCountPos14.ToString();
+        }
+        if (cardCountPos14 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card14 = Instantiate(ownedCardsIronSide[13], deckPlacements);
+            card14.name = "Card 14 IronSide";
+            cardCountPos14 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide14);
+            cardCountTextPos14.text = cardCountPos14.ToString();
+        }
+        if (cardCountPos14 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card14 = Instantiate(ownedCardsMidling[13], deckPlacements);
+            card14.name = "Card 14 Midling";
+            cardCountPos14 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling14);
+            cardCountTextPos14.text = cardCountPos14.ToString();
+        }
+        else return;
+
+    }
+
+    public void AddCardPos15ToDeck()
+    {
+
+        if (cardCountPos15 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
+        {
+            GameObject card15 = Instantiate(ownedCardsSwarmer[14], deckPlacements);
+            card15.name = "Card 15 Swarmer";
+            cardCountPos15 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardSwarmer15);
+            cardCountTextPos15.text = cardCountPos15.ToString();
+        }
+        if (cardCountPos15 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
+        {
+            GameObject card15 = Instantiate(ownedCardsIronSide[14], deckPlacements);
+            card15.name = "Card 15 IronSide";
+            cardCountPos15 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardIronSide15);
+            cardCountTextPos15.text = cardCountPos15.ToString();
+        }
+        if (cardCountPos15 > 0 && factionChange == Faction.Midling && CardCountMax < 20)
+        {
+            GameObject card15 = Instantiate(ownedCardsMidling[14], deckPlacements);
+            card15.name = "Card 15 Midling";
+            cardCountPos15 -= 1;
+            CardCountMax += 1;
+            builtDeck.Add(cardMidling15);
+            cardCountTextPos15.text = cardCountPos15.ToString();
+        }
+        else return;
+
+    }
+
+
+    #endregion
+
+
+    #region Remove Cards from Deck
 
     public void RemoveCardPos1FromDeck()
     {
-        if (cardCountPos1 < 2 && factionChange == Faction.Swarmer)
+        if (cardCountPos1 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0 )
         {
             cardCountPos1 += 1;
+            CardCountMax -= 1;
             builtDeck.Remove(cardSwarmer1);
             cardCountTextPos1.text = cardCountPos1.ToString();
             Destroy(GameObject.Find("Card 1 Swarmer"));
         }
-        if (cardCountPos1 < 2 && factionChange == Faction.IronSide)
+        if (cardCountPos1 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
         {
             cardCountPos1 += 1;
+            CardCountMax -= 1;
             builtDeck.Remove(cardIronSide1);
             cardCountTextPos1.text = cardCountPos1.ToString();
             Destroy(GameObject.Find("Card 1 IronSide"));
         }
-        if (cardCountPos1 < 2 && factionChange == Faction.Midling)
+        if (cardCountPos1 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
         {
             cardCountPos1 += 1;
+            CardCountMax -= 1;
             builtDeck.Remove(cardMidling1);
             cardCountTextPos1.text = cardCountPos1.ToString();
             Destroy(GameObject.Find("Card 1 Midling"));
@@ -484,23 +964,26 @@ public class OwnedCards : MonoBehaviour
 
     public void RemoveCardPos2FromDeck()
     {
-        if (cardCountPos2 < 2 && factionChange == Faction.Swarmer)
+        if (cardCountPos2 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
         {
             cardCountPos2 += 1;
+            CardCountMax -= 1;
             builtDeck.Remove(cardSwarmer2);
             cardCountTextPos2.text = cardCountPos2.ToString();
             Destroy(GameObject.Find("Card 2 Swarmer"));
         }
-        if (cardCountPos2 < 2 && factionChange == Faction.IronSide)
+        if (cardCountPos2 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
         {
             cardCountPos2 += 1;
+            CardCountMax -= 1;
             builtDeck.Remove(cardIronSide2);
             cardCountTextPos2.text = cardCountPos2.ToString();
             Destroy(GameObject.Find("Card 2 IronSide"));
         }
-        if (cardCountPos2 < 2 && factionChange == Faction.Midling)
+        if (cardCountPos2 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
         {
             cardCountPos2 += 1;
+            CardCountMax -= 1;
             builtDeck.Remove(cardMidling2);
             cardCountTextPos2.text = cardCountPos2.ToString();
             Destroy(GameObject.Find("Card 2 Midling"));
@@ -509,13 +992,395 @@ public class OwnedCards : MonoBehaviour
 
     }
 
+    public void RemoveCardPos3FromDeck()
+    {
+        if (cardCountPos3 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos3 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer3);
+            cardCountTextPos3.text = cardCountPos3.ToString();
+            Destroy(GameObject.Find("Card 3 Swarmer"));
+        }
+        if (cardCountPos3 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos3 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide3);
+            cardCountTextPos3.text = cardCountPos3.ToString();
+            Destroy(GameObject.Find("Card 3 IronSide"));
+        }
+        if (cardCountPos3 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos3 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling3);
+            cardCountTextPos3.text = cardCountPos3.ToString();
+            Destroy(GameObject.Find("Card 3 Midling"));
+        }
+        else return;
 
+    }
 
+    public void RemoveCardPos4FromDeck()
+    {
+        if (cardCountPos4 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos4 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer4);
+            cardCountTextPos4.text = cardCountPos4.ToString();
+            Destroy(GameObject.Find("Card 4 Swarmer"));
+        }
+        if (cardCountPos4 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos4 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide4);
+            cardCountTextPos4.text = cardCountPos4.ToString();
+            Destroy(GameObject.Find("Card 4 IronSide"));
+        }
+        if (cardCountPos4 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos4 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling4);
+            cardCountTextPos4.text = cardCountPos4.ToString();
+            Destroy(GameObject.Find("Card 4 Midling"));
+        }
+        else return;
 
-    #endregion
+    }
 
+    public void RemoveCardPos5FromDeck()
+    {
+        if (cardCountPos5 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos5 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer5);
+            cardCountTextPos5.text = cardCountPos5.ToString();
+            Destroy(GameObject.Find("Card 5 Swarmer"));
+        }
+        if (cardCountPos5 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos5 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide5);
+            cardCountTextPos5.text = cardCountPos5.ToString();
+            Destroy(GameObject.Find("Card 5 IronSide"));
+        }
+        if (cardCountPos5 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos5 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling5);
+            cardCountTextPos5.text = cardCountPos5.ToString();
+            Destroy(GameObject.Find("Card 5 Midling"));
+        }
+        else return;
 
-    #region Remove Cards from Deck
+    }
+
+    public void RemoveCardPos6FromDeck()
+    {
+        if (cardCountPos6 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos6 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer6);
+            cardCountTextPos6.text = cardCountPos6.ToString();
+            Destroy(GameObject.Find("Card 6 Swarmer"));
+        }
+        if (cardCountPos6 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos6 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide6);
+            cardCountTextPos6.text = cardCountPos6.ToString();
+            Destroy(GameObject.Find("Card 6 IronSide"));
+        }
+        if (cardCountPos6 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos6 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling6);
+            cardCountTextPos6.text = cardCountPos6.ToString();
+            Destroy(GameObject.Find("Card 6 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos7FromDeck()
+    {
+        if (cardCountPos7 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos7 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer7);
+            cardCountTextPos7.text = cardCountPos7.ToString();
+            Destroy(GameObject.Find("Card 7 Swarmer"));
+        }
+        if (cardCountPos7 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos7 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide2);
+            cardCountTextPos7.text = cardCountPos7.ToString();
+            Destroy(GameObject.Find("Card 7 IronSide"));
+        }
+        if (cardCountPos7 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos7 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling7);
+            cardCountTextPos7.text = cardCountPos7.ToString();
+            Destroy(GameObject.Find("Card 7 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos8FromDeck()
+    {
+        if (cardCountPos8 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos8 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer8);
+            cardCountTextPos8.text = cardCountPos8.ToString();
+            Destroy(GameObject.Find("Card 8 Swarmer"));
+        }
+        if (cardCountPos8 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos8 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide8);
+            cardCountTextPos8.text = cardCountPos8.ToString();
+            Destroy(GameObject.Find("Card 8 IronSide"));
+        }
+        if (cardCountPos8 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos8 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling8);
+            cardCountTextPos8.text = cardCountPos8.ToString();
+            Destroy(GameObject.Find("Card 8 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos9FromDeck()
+    {
+        if (cardCountPos9 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos9 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer2);
+            cardCountTextPos9.text = cardCountPos9.ToString();
+            Destroy(GameObject.Find("Card 9 Swarmer"));
+        }
+        if (cardCountPos9 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos9 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide2);
+            cardCountTextPos9.text = cardCountPos9.ToString();
+            Destroy(GameObject.Find("Card 9 IronSide"));
+        }
+        if (cardCountPos9 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos9 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling9);
+            cardCountTextPos9.text = cardCountPos9.ToString();
+            Destroy(GameObject.Find("Card 9 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos10FromDeck()
+    {
+        if (cardCountPos10 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos10 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer10);
+            cardCountTextPos10.text = cardCountPos10.ToString();
+            Destroy(GameObject.Find("Card 10 Swarmer"));
+        }
+        if (cardCountPos10 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos10 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide10);
+            cardCountTextPos10.text = cardCountPos10.ToString();
+            Destroy(GameObject.Find("Card 10 IronSide"));
+        }
+        if (cardCountPos10 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos10 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling10);
+            cardCountTextPos10.text = cardCountPos10.ToString();
+            Destroy(GameObject.Find("Card 10 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos11FromDeck()
+    {
+        if (cardCountPos11 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos11 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer11);
+            cardCountTextPos11.text = cardCountPos11.ToString();
+            Destroy(GameObject.Find("Card 11 Swarmer"));
+        }
+        if (cardCountPos11 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos11 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide11);
+            cardCountTextPos11.text = cardCountPos11.ToString();
+            Destroy(GameObject.Find("Card 11 IronSide"));
+        }
+        if (cardCountPos11 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos11 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling11);
+            cardCountTextPos11.text = cardCountPos11.ToString();
+            Destroy(GameObject.Find("Card 11 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos12FromDeck()
+    {
+        if (cardCountPos12 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos12 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer12);
+            cardCountTextPos12.text = cardCountPos12.ToString();
+            Destroy(GameObject.Find("Card 12 Swarmer"));
+        }
+        if (cardCountPos12 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos12 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide12);
+            cardCountTextPos12.text = cardCountPos12.ToString();
+            Destroy(GameObject.Find("Card 12 IronSide"));
+        }
+        if (cardCountPos12 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos12 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling12);
+            cardCountTextPos12.text = cardCountPos12.ToString();
+            Destroy(GameObject.Find("Card 12 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos13FromDeck()
+    {
+        if (cardCountPos13 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos13 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer13);
+            cardCountTextPos13.text = cardCountPos13.ToString();
+            Destroy(GameObject.Find("Card 13 Swarmer"));
+        }
+        if (cardCountPos13 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos13 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide13);
+            cardCountTextPos13.text = cardCountPos13.ToString();
+            Destroy(GameObject.Find("Card 13 IronSide"));
+        }
+        if (cardCountPos13 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos13 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling13);
+            cardCountTextPos13.text = cardCountPos13.ToString();
+            Destroy(GameObject.Find("Card 13 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos14FromDeck()
+    {
+        if (cardCountPos14 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos14 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer14);
+            cardCountTextPos14.text = cardCountPos14.ToString();
+            Destroy(GameObject.Find("Card 14 Swarmer"));
+        }
+        if (cardCountPos14 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos14 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide14);
+            cardCountTextPos14.text = cardCountPos14.ToString();
+            Destroy(GameObject.Find("Card 14 IronSide"));
+        }
+        if (cardCountPos14 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos14 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling14);
+            cardCountTextPos14.text = cardCountPos14.ToString();
+            Destroy(GameObject.Find("Card 14 Midling"));
+        }
+        else return;
+
+    }
+
+    public void RemoveCardPos15FromDeck()
+    {
+        if (cardCountPos15 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0)
+        {
+            cardCountPos15 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardSwarmer15);
+            cardCountTextPos15.text = cardCountPos15.ToString();
+            Destroy(GameObject.Find("Card 15 Swarmer"));
+        }
+        if (cardCountPos15 < 2 && factionChange == Faction.IronSide && CardCountMax >= 0)
+        {
+            cardCountPos15 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardIronSide15);
+            cardCountTextPos15.text = cardCountPos15.ToString();
+            Destroy(GameObject.Find("Card 15 IronSide"));
+        }
+        if (cardCountPos15 < 2 && factionChange == Faction.Midling && CardCountMax >= 0)
+        {
+            cardCountPos15 += 1;
+            CardCountMax -= 1;
+            builtDeck.Remove(cardMidling15);
+            cardCountTextPos15.text = cardCountPos15.ToString();
+            Destroy(GameObject.Find("Card 15 Midling"));
+        }
+        else return;
+
+    }
 
 
 
@@ -542,11 +1407,7 @@ public class OwnedCards : MonoBehaviour
         builtCardPlacements.Add(pos13);
         builtCardPlacements.Add(pos14);
         builtCardPlacements.Add(pos15);
-        builtCardPlacements.Add(pos16);
-        builtCardPlacements.Add(pos17);
-        builtCardPlacements.Add(pos18);
-        builtCardPlacements.Add(pos19);
-        builtCardPlacements.Add(pos20);
+
 
 
     }
@@ -568,11 +1429,7 @@ public class OwnedCards : MonoBehaviour
         cardCountPos13 = 2;
         cardCountPos14 = 2;
         cardCountPos15 = 2;
-        cardCountPos16 = 2;
-        cardCountPos17 = 2;
-        cardCountPos18 = 2;
-        cardCountPos19 = 2;
-        cardCountPos20 = 2;
+
 
         cardCountTextPos1.text = cardCountPos1.ToString();
         cardCountTextPos2.text = cardCountPos2.ToString();
@@ -589,11 +1446,7 @@ public class OwnedCards : MonoBehaviour
         cardCountTextPos13.text = cardCountPos13.ToString();
         cardCountTextPos14.text = cardCountPos14.ToString();
         cardCountTextPos15.text = cardCountPos15.ToString();
-        cardCountTextPos16.text = cardCountPos16.ToString();
-        cardCountTextPos17.text = cardCountPos17.ToString();
-        cardCountTextPos18.text = cardCountPos18.ToString();
-        cardCountTextPos19.text = cardCountPos19.ToString();
-        cardCountTextPos20.text = cardCountPos20.ToString();
+
     }
 
     #endregion
