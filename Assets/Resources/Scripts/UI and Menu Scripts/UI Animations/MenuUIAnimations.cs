@@ -7,16 +7,7 @@ using UnityEngine.UI;
 
 public class MenuUIAnimations : MonoBehaviour
 {
-    [System.Serializable]
-    public struct TextShit
-    {
-        public Transform transform;
-        public Text text;
-        public Shadow shadow;
-        public Outline outline;
-    }
-    //[SerializeField] private List<Transform> tranforms = new List<Transform>();
-    public TextShit[] transforms;
+    public TransformComponents[] transforms;
 
     [Space(5), Header("Main Colour")]
     public Color fadedMain;
@@ -30,16 +21,28 @@ public class MenuUIAnimations : MonoBehaviour
     [Space(5), Header("Time")]
     public float duration;
 
-    private void Start()
+    private void OnEnable()
     {
         for (int i = 0; i < transforms.Length; i++)
         {
-            transforms[i].text.color = fadedMain;
-            transforms[i].shadow.effectColor = fadedShadow;
-            transforms[i].outline.effectColor = fadedOutline;
+            transforms[i].TextColor = fadedMain;
+            transforms[i].ShadowColor = fadedShadow;
+            transforms[i].OutlineColor = fadedOutline;
         }
 
         StartCoroutine(SequenceAnimations());
+    }
+
+    private void OnDisable()
+    {
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            transforms[i].TextColor = fadedMain;
+            transforms[i].ShadowColor = fadedShadow;
+            transforms[i].OutlineColor = fadedOutline;
+
+            transforms[i].transform.localPosition = new Vector2(transform.localPosition.x, transform.localPosition.y - 10f);
+        }
     }
 
     private IEnumerator SequenceAnimations()
@@ -47,15 +50,15 @@ public class MenuUIAnimations : MonoBehaviour
         for (int i = 0; i < transforms.Length; i++)
         {
             transforms[i].transform.DOLocalMoveY(transforms[i].transform.localPosition.y + 10f, duration);
-            transforms[i].text.DOColor(showMain, duration);
+            transforms[i].Text.DOColor(showMain, duration);
 
             yield return new WaitForSeconds(duration);
         }
 
         for (int i = 0; i < transforms.Length; i++)
         {
-            transforms[i].shadow.effectColor = showShadow;
-            transforms[i].outline.effectColor = showOutline;
+            transforms[i].ShadowColor = showShadow;
+            transforms[i].OutlineColor = showOutline;
         }
     }
 }
