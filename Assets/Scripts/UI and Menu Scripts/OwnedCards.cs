@@ -21,18 +21,30 @@ public class OwnedCards : MonoBehaviour
     /// The idea is that it will remove a card from the ownedcards array, and add it to the DeckBuild array, and vice versa with the 'remove from deck' class.
     /// </summary>
 
-    //public int maxCards = 10; // For now
 
-    public GameObject[] ownedCards;
+
+    public List<GameObject> ownedCards = new List<GameObject>();
     public Transform[] cardPlacements;
+    public Text cardCountText;
 
     DeckBuild deckBuildClass;
 
+    #region cardGO's
 
+    public GameObject cardSwarmer1;
+    public GameObject cardSwarmer2;
+
+
+    #endregion
+
+    #region owned cards
+
+
+    #endregion
 
     private void Start()
     {
-
+        AddCardsToOwned();
         deckBuildClass = FindObjectOfType<DeckBuild>();
         SpawnOwnedCards();
     }
@@ -65,5 +77,11 @@ public class OwnedCards : MonoBehaviour
 
     }
 
+
+    public void AddCardsToOwned()
+    {
+        ownedCards.Add(cardSwarmer1);
+        ownedCards.Add(cardSwarmer2);
+    }
 
 }
