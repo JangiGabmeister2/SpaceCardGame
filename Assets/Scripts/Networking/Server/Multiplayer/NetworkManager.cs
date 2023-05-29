@@ -1,7 +1,7 @@
 using System;
 using System.Linq.Expressions;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 namespace Networking.Server.Multiplayer
 {
@@ -49,6 +49,10 @@ public class NetworkManager : MonoBehaviour
             RiptideLogger.Initialize(Debug.Log, Debug.Log, Debug.LogWarning, Debug.LogError, false);
             //creates new server
             Server = new Server();
+        }
+
+        public void StartServer()
+        {
             //starts the server at port x with y amount of max clients
             Server.Start(port, maxClientCount);
         }
