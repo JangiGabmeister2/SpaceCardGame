@@ -7,12 +7,17 @@ namespace Networking.Client.Multiplayer
     using Riptide;
     using Riptide.Utils;
 
+    public enum ClientToServerId : ushort
+    {
+        Name = 1,
+    }
     public class NetworkManager : MonoBehaviour
     {
+
         //singleton to ensure only 1 network manager
         private static NetworkManager _networkMangerInstance;
     
-        public static NetworkManager NetworkManagerInstance
+        public static NetworkManager LocalInstance
         {
             get => _networkMangerInstance;
             private set
@@ -32,13 +37,24 @@ namespace Networking.Client.Multiplayer
         }
         public Client Client { get; private set; }
         //ip address to connect to
-        [SerializeField] private string ip;
+        [SerializeField] string ip;
         //port to connect to 
-        [SerializeField] private string port;
+        [SerializeField] string port;
+        
+        public string IP
+        {
+            get { return ip; }
+            set { ip = value; }
+        }
+        public string Port
+        {
+            get { return port; }
+            set { port = value; }
+        }
         private void Awake()
         {
             //set object this script is on to be this instance
-            NetworkManagerInstance = this;
+            LocalInstance = this;
         }
 
         private void Start()
@@ -47,6 +63,9 @@ namespace Networking.Client.Multiplayer
             RiptideLogger.Initialize(Debug.Log, Debug.Log, Debug.LogWarning, Debug.LogError, false);
             //creates new client
             Client = new Client();
+            Client.Connected += DidConnect;
+            Client.ConnectionFailed += FailedConnect;
+            Client.Disconnected += DidDisconnect;
         }
 
         public void Connect()
@@ -54,6 +73,20 @@ namespace Networking.Client.Multiplayer
             Client.Connect($"{ip}:{port}");
         }
 
+        private void DidConnect(object sender, EventArgs e)
+        {
+            UIManager.LocalInstance.SendName();
+        }
+
+        private void FailedConnect(object sender, EventArgs e)
+        {
+            UIManager.LocalInstance.BackToMain();
+        }
+
+        private void DidDisconnect(object sender, EventArgs e)
+        {
+            UIManager.LocalInstance.BackToMain();
+        }
         private void FixedUpdate()
         {
             Client.Update();

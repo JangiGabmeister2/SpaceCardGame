@@ -38,6 +38,11 @@ public class NetworkManager : MonoBehaviour
         //max amount of clients allowed to connect
         [SerializeField] private ushort maxClientCount;
 
+        public ushort Port
+        {
+            get { return port; }
+            set { port = value; }
+        }
         private void Awake()
         {
             NetworkManagerInstance = this;
@@ -55,6 +60,11 @@ public class NetworkManager : MonoBehaviour
         {
             //starts the server at port x with y amount of max clients
             Server.Start(port, maxClientCount);
+        }
+
+        public void StopServer()
+        {
+            Server.Stop();
         }
 
         private void FixedUpdate()
