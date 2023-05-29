@@ -11,4 +11,16 @@ public class DeckBuild : MonoBehaviour
 
 
     public GameObject[] deckBuildCards;
+    public Transform[] deckBuildPos;
+
+    OwnedCards ownedCardsClass;
+
+
+    private void Start()
+    {
+        ownedCardsClass = FindObjectOfType<OwnedCards>();
+    }
+
+
+
 }
