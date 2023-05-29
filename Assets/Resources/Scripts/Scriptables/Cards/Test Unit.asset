@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752d764d7456cd34aac8d4ff26babc2c, type: 3}
   m_Name: Test Unit
   m_EditorClassIdentifier: 
-  cardID: 101
+  cardID: 1
   cardName: ShippyMcShip
   cardArt: {fileID: 0}
   _attackType: 0
-  attack: 2
-  cost: 1
-  shield: 2
+  attackDamage: 0
   hull: 2
   maxHull: 2
+  shield: 2
+  resourceCost: 0
+  cardDescription: 

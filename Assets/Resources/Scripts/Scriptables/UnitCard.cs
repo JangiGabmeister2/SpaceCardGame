@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 
 [CreateAssetMenu(fileName = "New Unit", menuName = "CardData/UnitCard")]
 public class UnitCard : ScriptableObject
@@ -12,19 +13,22 @@ public class UnitCard : ScriptableObject
     //Our two options for damagetype
     public enum attackType
     {
-        Kinetic, Energy
+        Kinetic, Energy, Modular
     }
     //declares what this specific spawned card's attack type is
     [SerializeField] private attackType _attackType;
 
     //Stats
-    public int attack;
-    public int cost;
-    public int shield;
-    //this will be the health stat that we add or subtract from
+    public int attackDamage;
     public int hull;
     //the unit's starting health, when instantiating, make sure the 'health' int is set to this.
     public int maxHull;
+    //this will be the health stat that we add or subtract from
+    public int shield;
+    public int resourceCost;
+    [TextArea]
+    public string cardDescription;
+
     public void Play()
     {
 
