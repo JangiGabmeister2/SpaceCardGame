@@ -22,3 +22,5 @@ MonoBehaviour:
   shield: 2
   resourceCost: 0
   cardDescription: 
+  effects:
+  - {fileID: 11400000, guid: 8f3e82185ecbfd4438b834a3ca2532b1, type: 2}
