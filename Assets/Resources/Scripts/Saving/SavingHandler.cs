@@ -13,7 +13,7 @@ public class SavingHandler : MonoBehaviour
     private void Start()
     {
         onMatchWin.AddListener(IncreaseWinCount);
-        onMatchLoss.AddListener(IncreaseLoseCount);
+        onMatchLoss.AddListener(IncreaseLoseCount);        
     }
 
     public void SaveChosenDeck()
@@ -35,44 +35,44 @@ public class SavingHandler : MonoBehaviour
         return level;
     }
 
-    //called at the end of each match
-    public void GetPlayerValuesRemaining()
+    //returns amount of experience earned depending on match win or loss
+    public int ExperienceEarned(bool matchWin = false)
     {
-        //used for experience calculations
-        //the higher the health/morale at match end, the more experience gained
-    }
+        int xpCurrent = PlayerPrefs.GetInt("experience_points", 0);
 
-    public int GetNumberOfCardsRemaining()
-    {
-        int count = 0;
-        return count;
-    }
+        //match won = 2 xp
+        if (matchWin)
+        {
+            xpCurrent += 2;
+        }
+        //match loss = 1 xp
+        else
+        {
+            xpCurrent += 1;
+        }
 
-    public void CalculateExperienceEarned()
-    {
-        //experience is calculated by:
-        //number of cards used, the level of cards used,
-        //number of turns played, time elapsed during each turn,
-        //amount of health/morale/resources/cards remaining, etc
-
-        //match loss = exp earned / 2
-
-        //calculate experience
+        return xpCurrent;
     }
 
     public void CalculateCardsEarned()
     {
-        //cards that are unlocked at the end of the match, if any, are calculated on:
-        //most used attack types and most used faction types
+        int xpLevel = PlayerPrefs.GetInt("experience_points", 0);
 
-        //match loss = cards earned / 2
+        //if xp level after gaining current match xp reaches 10, player increases level and gains new card
+        if (xpLevel + ExperienceEarned() >= 10)
+        {
+            IncreasePlayerLevel();
+
+            //get new card
+
+            xpLevel = xpLevel - 10;
+        }
+
+        PlayerPrefs.SetInt("experience_points", xpLevel);
     }
 
     private void IncreasePlayerLevel()
     {
-        //after experience calculations
-        //if next level requirements are reached with total experience gained
-
         //increase player level
         int oldLevel = PlayerPrefs.GetInt("player_level", 1);
         PlayerPrefs.SetInt("player_level", oldLevel + 1);

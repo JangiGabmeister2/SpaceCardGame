@@ -24,7 +24,7 @@ public class TransformComponents
 
         set
         {
-
+            transform.GetComponentInChildren<Text>().color = value;
         }
     }
     public Color ShadowColor
@@ -36,7 +36,7 @@ public class TransformComponents
 
         set
         {
-
+            transform.GetComponentInChildren<Shadow>().effectColor = value;
         }
     }
     public Color OutlineColor
@@ -48,7 +48,38 @@ public class TransformComponents
 
         set
         {
+            transform.GetComponentInChildren<Outline>().effectColor = value;
+        }
+    }
+    public Vector2 OriginalPosition
+    {
+        get
+        {
+            return transform.position;
+        }
+    }
+    public Vector2 position
+    {
+        get
+        {
+            return transform.position;
+        }
 
+        set
+        {
+            transform.position = value;
+        }
+    }
+    public Vector2 localPosition
+    {
+        get
+        {
+            return transform.localPosition;
+        }
+
+        set
+        {
+            transform.localPosition = value;
         }
     }
 }
