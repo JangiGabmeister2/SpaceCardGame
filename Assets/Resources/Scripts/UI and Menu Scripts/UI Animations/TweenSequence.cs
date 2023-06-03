@@ -16,13 +16,4 @@ public class TweenSequence : MonoBehaviour
             s.Append(tweens[i].tweener);
         }
     }
-
-    private void OnEnable()
-    {
-        Debug.Log("Disabled");
-        for (int i = 0; i < tweens.Length; i++)
-        {
-            DOTween.Restart(tweens[i]);
-        }
-    }
 }

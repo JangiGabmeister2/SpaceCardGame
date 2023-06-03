@@ -36,7 +36,7 @@ public class MenuHandler : MonoBehaviour
 
     public GameObject gameplayUI;
     public GameObject overlay;
-
+    public GameObject optionsUI;
 
 
     public bool playerOneTurn;
@@ -233,7 +233,7 @@ public class MenuHandler : MonoBehaviour
 
                 pauseButton.gameObject.SetActive(false);
                 CloseAllPanels();
-                //Close all active panels, then active the DeckBuilder panel.
+                optionsUI.SetActive(true);
                 panels[4].SetActive(true);
 
                 if (isInGame)

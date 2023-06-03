@@ -10,10 +10,11 @@ public class SavingHandler : MonoBehaviour
     [Header("Player Lose Event")]
     public UnityEvent onMatchLoss;
 
+    [SerializeField] AudioSource[] audioSources;
+
     private void Start()
     {
-        onMatchWin.AddListener(IncreaseWinCount);
-        onMatchLoss.AddListener(IncreaseLoseCount);        
+
     }
 
     public void SaveChosenDeck()
@@ -91,4 +92,20 @@ public class SavingHandler : MonoBehaviour
         int previousLosses = PlayerPrefs.GetInt("match_losses", 0);
         PlayerPrefs.SetInt("match_losses", previousLosses + 1);
     }
+
+    #region Settings
+    //public void SaveAudioSettings(string audioSourceName)
+    //{
+    //    float savedVolume = PlayerPrefs.GetFloat($"{audioSourceName}_volume", 50f);
+
+    //    foreach (AudioSource sources in audioSources)
+    //    {
+    //        if (sources.outputAudioMixerGroup.name == audioSourceName && sources.volume != savedVolume)
+    //        {
+    //            float newVolume = sources.volume;
+    //            PlayerPrefs.SetFloat($"{audioSourceName}_volume", newVolume);
+    //        }
+    //    }
+    //}
+    #endregion
 }

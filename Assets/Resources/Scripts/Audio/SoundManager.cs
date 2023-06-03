@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     #region Sound Manager Instance
-    private static SoundManager Instance;
+    public static SoundManager Instance;
 
     private void Awake()
     {
@@ -22,16 +23,21 @@ public class SoundManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] AudioSource musicSource, effectsSource;
+    [SerializeField] AudioSource musicSource, effectsSource;    
 
     public void PlaySound(AudioClip clip)
     {
         effectsSource.PlayOneShot(clip);
     }
 
-    public void ControlVolume(float value)
+    public void ControlMusicVolume(float volume)
     {
-        musicSource.volume = value;
+        musicSource.volume = volume;
+    }
+
+    public void ControlEffectsVolume(float volume)
+    {
+        effectsSource.volume = volume;
     }
 
     public void ChangeMusic(AudioClip clip)
