@@ -9,11 +9,9 @@ public class UnitCard : ScriptableObject
 {
     //Card ID <faction><card num> e.g.<2><05> = 205
     public int cardID;
-    //the basic data type for the card that both units and effects will draw from
     public string cardName;
-    //the card's name
     public Sprite cardArt;
-    //Our two options for damagetype
+    //Our two options for damagetype and the modular one I guess
     public enum attackType
     {
         Kinetic, Energy, Modular
@@ -21,34 +19,39 @@ public class UnitCard : ScriptableObject
 
     [Header("Stats")]
     [SerializeField] private attackType _attackType;
-    public int attackDamage;
-    //this will be the health stat that we add or subtract from
-    public int hull;
-    //the unit's starting health, when instantiating, make sure the 'health' int is set to this.
-    public int maxHull;
-    public int shield;
+    //stats that change
+    [HideInInspector] public int attackDamage;
+    public int startAttackDamage;
+    [HideInInspector] public int hull;
+    public int startHull;
+    [HideInInspector] public int shield;
+    public int startShield;
+
     public int resourceCost;
     [TextArea] public string cardDescription;
     
-    #region Triggers
+    #region Effects
     //WARNING this region is where my insanity begins
     public List<CardEffect> effects;
-    private UnityEvent
+    private UnityEvent //effects subscribe/listen to these trigger events
         onPlayed,
         passive,
         onAttack,
         onTurnEnd,
         onDeath,
         onAllyDeath;
-
-    private void Awake()
+    private void OnEnable()
     {
+        attackDamage = startAttackDamage;
+        hull = startHull;
+        shield = startShield;
+
         //Looks through effects list and sets up the triggers on awake
         AddEffectsToTriggers();
     }
 
     /// <summary>
-    /// Use this function to add a new effect to this card (when a card is out and gives other cards a buff)
+    /// Use this function to add a new effect to this card (like when a card is out and gives other cards a buff)
     /// </summary>
     /// <param name="effect"></param>
     public void AddEffect(CardEffect effect)
@@ -93,10 +96,28 @@ public class UnitCard : ScriptableObject
     #endregion
 
     //Trigger functions
-    public void OnPlayed() => onPlayed.Invoke();
-    public void Passive() => passive.Invoke();
-    public void OnAttack() => onAttack.Invoke();
-    public void OnTurnEnd() => onTurnEnd.Invoke();
-    public void OnDeath() => onDeath.Invoke();
-    public void OnAllyDeath() => onAllyDeath.Invoke();
+    public void OnPlayed()
+    {
+        onPlayed.Invoke();
+    }
+    public void Passive()
+    {
+        passive.Invoke(); 
+    }
+    public void OnAttack()
+    {
+        onAttack.Invoke(); 
+    }
+    public void OnTurnEnd()
+    {
+        onTurnEnd.Invoke();
+    }
+    public void OnDeath()
+    {
+        onDeath.Invoke();
+    }
+    public void OnAllyDeath()
+    {
+        onAllyDeath.Invoke();
+    }
 }
