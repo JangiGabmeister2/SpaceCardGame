@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 3
-  health: {x: 2, y: 2}
+  hull: 2
   shield: 2
   resourceCost: 6
   cardDescription: 'Spawn two copies on play. '
+  properties: 
+  effects: []

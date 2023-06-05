@@ -17,8 +17,10 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 2
   attackDamage: 1
-  health: {x: 1, y: 1}
+  hull: 1
   shield: 1
   resourceCost: 2
   cardDescription: 'Choose at the end of turn to deal 1 Damage to a random foe or
     give 1 shield to a random ally. '
+  properties: 
+  effects: []

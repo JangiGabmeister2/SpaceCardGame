@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 1
   attackDamage: 2
-  health: {x: 3, y: 3}
+  hull: 3
   shield: 2
   resourceCost: 6
   cardDescription: 'Give allies Rush when they are played. '
+  properties: 
+  effects: []

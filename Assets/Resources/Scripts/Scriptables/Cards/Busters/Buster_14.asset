@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752d764d7456cd34aac8d4ff26babc2c, type: 3}
   m_Name: Buster_14
   m_EditorClassIdentifier: 
-  cardID: 101
+  cardID: 214
   cardName: 
   cardArt: {fileID: 0}
-  _attackType: 0
-  attackDamage: 1
-  health: {x: 3, y: 3}
-  shield: 1
-  resourceCost: 1
-  cardDescription: 
+  _attackType: 1
+  attackDamage: 2
+  hull: 3
+  shield: 3
+  resourceCost: 4
+  cardDescription: 'Taunt. Restore 2 hull at end of turn. '
+  properties: 
+  effects: []

@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 2
-  health: {x: 2, y: 2}
+  hull: 2
   shield: 1
   resourceCost: 2
   cardDescription: 'Give an ally +1 Damage on play. '
+  properties: 
+  effects: []

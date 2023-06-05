@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 3
-  health: {x: 5, y: 5}
+  hull: 5
   shield: 2
   resourceCost: 6
   cardDescription: Fill your board with (2 / 1 / 0).
+  properties: 
+  effects: []

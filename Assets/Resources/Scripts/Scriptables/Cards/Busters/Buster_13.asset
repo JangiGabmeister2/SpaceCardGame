@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752d764d7456cd34aac8d4ff26babc2c, type: 3}
   m_Name: Buster_13
   m_EditorClassIdentifier: 
-  cardID: 101
+  cardID: 213
   cardName: 
   cardArt: {fileID: 0}
   _attackType: 0
-  attackDamage: 1
-  health: {x: 3, y: 3}
-  shield: 1
-  resourceCost: 1
-  cardDescription: 
+  attackDamage: 2
+  hull: 3
+  shield: 0
+  resourceCost: 2
+  cardDescription: 'Spread. On death, give a random ally +2 hull. '
+  properties: 
+  effects: []

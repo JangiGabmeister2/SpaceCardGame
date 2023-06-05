@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 1
   attackDamage: 2
-  health: {x: 2, y: 2}
+  hull: 2
   shield: 3
   resourceCost: 3
   cardDescription: Taunt
+  properties: 
+  effects: []

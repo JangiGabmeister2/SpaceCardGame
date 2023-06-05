@@ -17,8 +17,10 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 4
-  health: {x: 3, y: 3}
+  hull: 3
   shield: 1
   resourceCost: 5
   cardDescription: 'Choose on death deal 2 Damage to a random foe or spawn a (2 /
     1 / 1). '
+  properties: 
+  effects: []

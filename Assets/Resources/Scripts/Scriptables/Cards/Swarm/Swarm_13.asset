@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 1
-  health: {x: 5, y: 5}
+  hull: 5
   shield: 3
   resourceCost: 4
   cardDescription: 'When an ally dies, gain +1 damage. '
+  properties: 
+  effects: []

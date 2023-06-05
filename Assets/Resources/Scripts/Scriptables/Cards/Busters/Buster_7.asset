@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 1
   attackDamage: 2
-  health: {x: 4, y: 4}
+  hull: 4
   shield: 5
   resourceCost: 6
   cardDescription: 'Spread. When attacking, restore Shield equal to Damage dealt. '
+  properties: 
+  effects: []

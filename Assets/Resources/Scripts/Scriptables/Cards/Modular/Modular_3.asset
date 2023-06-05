@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 1
   attackDamage: 1
-  health: {x: 3, y: 3}
+  hull: 3
   shield: 0
   resourceCost: 2
   cardDescription: 'Choose +2 Shield or Spread. '
+  properties: 
+  effects: []

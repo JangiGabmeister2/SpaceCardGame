@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 1
   attackDamage: 4
-  health: {x: 1, y: 1}
+  hull: 1
   shield: 3
   resourceCost: 5
   cardDescription: 'Choose Rush or on play spawn a (2 / 2 / 1). '
+  properties: 
+  effects: []

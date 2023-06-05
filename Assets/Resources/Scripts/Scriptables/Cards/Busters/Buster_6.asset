@@ -17,7 +17,9 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 2
-  health: {x: 4, y: 4}
+  hull: 4
   shield: 3
   resourceCost: 4
   cardDescription: Spread
+  properties: 
+  effects: []

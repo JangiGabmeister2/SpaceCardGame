@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752d764d7456cd34aac8d4ff26babc2c, type: 3}
   m_Name: Buster_15
   m_EditorClassIdentifier: 
-  cardID: 101
+  cardID: 215
   cardName: 
   cardArt: {fileID: 0}
-  _attackType: 0
-  attackDamage: 1
-  health: {x: 5, y: 5}
-  shield: 1
-  resourceCost: 1
-  cardDescription: 
+  _attackType: 1
+  attackDamage: 4
+  hull: 5
+  shield: 6
+  resourceCost: 7
+  cardDescription: 'On Play, give all allies 1 shield. '
+  properties: 
+  effects: []
