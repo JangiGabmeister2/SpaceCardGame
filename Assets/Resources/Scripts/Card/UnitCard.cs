@@ -12,24 +12,30 @@ public class UnitCard : ScriptableObject
     public string cardName;
     public Sprite cardArt;
     //Our two options for damagetype and the modular one I guess
-    public enum attackType
+    public enum AttackType
     {
         Kinetic, Energy, Modular
     }
 
     [Header("Stats")]
-    [SerializeField] private attackType _attackType;
+    [SerializeField] private AttackType _attackType;
     //stats that change
-    [HideInInspector] public int attackDamage;
-    public int startAttackDamage;
-    [HideInInspector] public int hull;
-    public int startHull;
-    [HideInInspector] public int shield;
-    public int startShield;
-
+    public int attackDamage;
+    public int hull;
+    public int shield;
     public int resourceCost;
     [TextArea] public string cardDescription;
-    
+
+    //different properties that a card can have
+    public enum Property
+    {
+        Rush,
+        Taunt,
+        Spread
+    }
+    //have a list of properties that we can check using "properties.Contains(Property.Option)"
+    public List<Property> properties;
+
     #region Effects
     //WARNING this region is where my insanity begins
     public List<CardEffect> effects;
@@ -42,10 +48,6 @@ public class UnitCard : ScriptableObject
         onAllyDeath;
     private void OnEnable()
     {
-        attackDamage = startAttackDamage;
-        hull = startHull;
-        shield = startShield;
-
         //Looks through effects list and sets up the triggers on awake
         AddEffectsToTriggers();
     }
@@ -95,18 +97,18 @@ public class UnitCard : ScriptableObject
     }
     #endregion
 
-    //Trigger functions
+    //Trigger functions (might not be the place for these, possibly better in a CardBehaviour script or something)
     public void OnPlayed()
     {
         onPlayed.Invoke();
     }
     public void Passive()
     {
-        passive.Invoke(); 
+        passive.Invoke();
     }
     public void OnAttack()
     {
-        onAttack.Invoke(); 
+        onAttack.Invoke();
     }
     public void OnTurnEnd()
     {

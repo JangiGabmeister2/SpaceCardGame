@@ -10,5 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcee9dfe798a6864b832e61a9fd68ffc, type: 3}
-  m_Name: New Effect
+  m_Name: Test Effect
   m_EditorClassIdentifier: 
+  target: 1
+  trigger: 0
+  attackChange: 12
+  hullChange: 0
+  shieldChange: 0
+  costChange: 0

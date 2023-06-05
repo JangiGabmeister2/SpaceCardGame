@@ -17,10 +17,10 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 0
-  hull: 2
-  maxHull: 2
-  shield: 2
+  hull: 0
+  shield: 0
   resourceCost: 0
   cardDescription: 
+  properties: 02000000
   effects:
   - {fileID: 11400000, guid: 8f3e82185ecbfd4438b834a3ca2532b1, type: 2}

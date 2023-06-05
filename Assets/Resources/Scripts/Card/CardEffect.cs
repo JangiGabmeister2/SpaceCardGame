@@ -11,8 +11,8 @@ public class CardEffect : ScriptableObject
         SelectedAlly,
         RandomAlly,
         AllAllies,
-        SelectedEnemy,
-        EnemiesAndAdjacent
+        /*SelectedEnemy,
+        EnemiesAndAdjacent*/
     }
     public Target target;
 
@@ -32,11 +32,11 @@ public class CardEffect : ScriptableObject
         attackChange,
         hullChange,
         shieldChange,
-        costChange; //maybe change this because we don't want to affect the cost of the card itself?
+        costChange; //not too sure about this one chief
 
     private UnitCard self;
     private UnitCard selected;
-
+    List<UnitCard> allyList;
     public void ActivateEffect()
     {
         switch (target)
@@ -47,14 +47,22 @@ public class CardEffect : ScriptableObject
             case Target.SelectedAlly:
                 ChangeValues(selected);
                 break;
+            //TODO: This stuff probably needs some references to game board and play slots
             case Target.RandomAlly:
+                //replace placeholder var allyList
+                ChangeValues(allyList[Random.Range(0, allyList.Count - 1)]);
                 break;
             case Target.AllAllies:
+                foreach(UnitCard ally in allyList)
+                {
+                    ChangeValues(ally);
+                }
                 break;
-            case Target.SelectedEnemy:
+            //not sure if we actually need enemy stuff
+            /*case Target.SelectedEnemy:
                 break;
             case Target.EnemiesAndAdjacent:
-                break;
+                break;*/
             default:
                 break;
         }
