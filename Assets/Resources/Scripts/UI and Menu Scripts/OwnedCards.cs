@@ -23,7 +23,7 @@ public class OwnedCards : MonoBehaviour
 
     //public int maxCards = 10; // For now
 
-    public GameObject[] ownedCards;
+    public UnitCard[] ownedCards;
 
 
     private void Start()
@@ -33,17 +33,10 @@ public class OwnedCards : MonoBehaviour
 
     public void SpawnOwnedCards()
     {
-        
-        Instantiate(ownedCards[0], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[1], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[2], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[3], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[4], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[5], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[6], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[7], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[8], transform.position, Quaternion.identity, transform.parent);
-        Instantiate(ownedCards[9], transform.position, Quaternion.identity, transform.parent);
+        for (int i = 0; i < 9; i++)
+        {
+            Instantiate(ownedCards[i], transform.position, Quaternion.identity, transform.parent);
+        }
 
     }
 }

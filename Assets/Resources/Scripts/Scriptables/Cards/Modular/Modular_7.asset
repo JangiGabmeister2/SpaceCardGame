@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 2
   attackDamage: 3
-  hull: 3
-  maxHull: 3
+  health: {x: 3, y: 3}
   shield: 3
   resourceCost: 5
   cardDescription: 'Taunt. Choose +2 Shield or +2 Hull. '

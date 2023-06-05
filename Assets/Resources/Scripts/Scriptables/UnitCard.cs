@@ -20,9 +20,8 @@ public class UnitCard : ScriptableObject
 
     //Stats
     public int attackDamage;
-    public int hull;
-    //the unit's starting health, when instantiating, make sure the 'health' int is set to this.
-    public int maxHull;
+    [Tooltip("x = Base Health\ny = Max Health")]
+    public Vector2 health;
     //this will be the health stat that we add or subtract from
     public int shield;
     public int resourceCost;

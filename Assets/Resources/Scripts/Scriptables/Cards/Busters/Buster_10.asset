@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 7
-  hull: 6
-  maxHull: 6
+  health: {x: 6, y: 6}
   shield: 6
   resourceCost: 10
   cardDescription: 

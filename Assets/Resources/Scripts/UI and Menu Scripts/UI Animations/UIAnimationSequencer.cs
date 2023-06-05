@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.ComponentModel;
 
 public class UIAnimationSequencer : MonoBehaviour
 {
@@ -11,41 +12,32 @@ public class UIAnimationSequencer : MonoBehaviour
 
     private void Start()
     {
-        var sequence = DOTween.Sequence();
+        Sequence sequence = DOTween.Sequence();
 
         foreach (SequenceItem item in sequencer)
         {
-            sequence.Append(item.transformTween);
+            sequence.Append(item.uITransform.tweener);
         }
     }
 }
 
 [System.Serializable]
-public struct SequenceItem
+public class SequenceItem
 {
-    public Transform uITransform;
-    [SerializeField, Space(15f)] AnimationType animationType;
-    [SerializeField] MoveAnimationType moveAnimationType;
-    [Space(15f)] public float delayFromPrevious;
-
     public enum AnimationType
     {
         None,
         Move,
         Color
     }
-
     public enum MoveAnimationType
     {
         World_Move,
         Local_Move
     }
 
-    public Tween transformTween
-    {
-        get
-        {
-            return null;
-        }
-    }
+    public TransformTween uITransform;
+    [SerializeField, Space(15f)] AnimationType animationType;
+    [SerializeField] MoveAnimationType moveAnimationType;
+    [Space(15f)] public float delayFromPrevious;
 }

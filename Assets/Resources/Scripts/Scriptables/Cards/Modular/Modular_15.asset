@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 2
   attackDamage: 4
-  hull: 6
-  maxHull: 6
+  health: {x: 6, y: 6}
   shield: 6
   resourceCost: 8
   cardDescription: Always deals bonus damage.

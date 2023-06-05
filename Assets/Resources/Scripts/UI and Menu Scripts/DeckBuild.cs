@@ -10,5 +10,5 @@ public class DeckBuild : MonoBehaviour
     /// </summary>
 
 
-    public GameObject[] deckBuildCards;
+    public UnitCard[] deckBuildCards;
 }

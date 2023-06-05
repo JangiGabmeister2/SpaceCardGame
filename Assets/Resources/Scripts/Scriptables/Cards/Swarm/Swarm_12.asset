@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 2
-  hull: 1
-  maxHull: 1
+  health: {x: 1, y: 1}
   shield: 1
   resourceCost: 3
   cardDescription: 'Spread. Rush. On death spawn a copy. '

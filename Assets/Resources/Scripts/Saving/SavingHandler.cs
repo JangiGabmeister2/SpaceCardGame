@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,22 +11,67 @@ public class SavingHandler : MonoBehaviour
     [Header("Player Lose Event")]
     public UnityEvent onMatchLoss;
 
-    [SerializeField] AudioSource[] audioSources;
+    //[SerializeField] AudioSource[] audioSources;
 
     private void Start()
     {
 
     }
 
+    //when called, gets all the card IDs of the cards in custom deck area
+    //puts each ID into a string, separated by a comma
+    //saves string into player prefs
     public void SaveChosenDeck()
     {
-        //used in Deck Builder, after choosing a deck to play, saves deck to use for future matches
+        DeckBuild deckBuild = GameObject.Find("Deck Build")?.GetComponent<DeckBuild>();
+        List<int> selectedDeck = new List<int>();
+
+        //gets the card IDs for every card in the built deck and saves them into a list
+        foreach (UnitCard item in deckBuild.deckBuildCards)
+        {
+            int itemID = item.cardID;
+            selectedDeck.Add(itemID);
+        }
+
+        //gets all card IDs in the list and puts them in a string then saves it into player prefs
+        string chosenDeck = string.Join(",", selectedDeck);
+
+        PlayerPrefs.SetString("chosen_deck", chosenDeck);
     }
 
-    public void GetChosenDeck()
+    public List<UnitCard> GetChosenDeck()
     {
-        //before the match starts, gets deck data from each player's playerprefs
-        //if no deck was chosen (above), a default deck is automatically chosen
+        //takes the string of card IDs from player prefs
+        string savedDeck = PlayerPrefs.GetString("chosen_deck");
+
+        List<int> chosenDeck = new List<int>();
+
+        //separates each ID from separator/comma
+        string[] cardsString = savedDeck.Split(',');
+
+        foreach (string card in cardsString)
+        {
+            //turns the strings back into ints
+            chosenDeck.Add(int.Parse(card));
+        }
+
+        List<UnitCard> deck = new List<UnitCard>();
+        OwnedCards collection = GameObject.Find("Card Layout Controller")?.GetComponent<OwnedCards>();
+
+        foreach (int cardID in chosenDeck)
+        {
+            foreach (UnitCard cards in collection.ownedCards)
+            {
+                //gets each card via card IDs and puts them into list
+                if (cards.cardID == cardID)
+                {
+                    deck.Add(cards);
+                }
+            }
+        }
+
+        //returns above list of cards
+        return deck;
     }
 
     //gets the player's level to display when joining servers and during matches

@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 1
   attackDamage: 1
-  hull: 2
-  maxHull: 2
+  health: {x: 2, y: 2}
   shield: 3
   resourceCost: 3
   cardDescription: All allies +1 Damage whilst minion is in play.

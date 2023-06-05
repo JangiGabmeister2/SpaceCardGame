@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 2
   attackDamage: 2
-  hull: 4
-  maxHull: 4
+  health: {x: 4, y: 4}
   shield: 4
   resourceCost: 7
   cardDescription: 'Taunt. On death spawn a (2 / 3 / 1) and a (2 / 1 / 3). '

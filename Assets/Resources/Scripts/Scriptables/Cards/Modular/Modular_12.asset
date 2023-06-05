@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 0
   attackDamage: 2
-  hull: 3
-  maxHull: 3
+  health: {x: 3, y: 3}
   shield: 2
   resourceCost: 4
   cardDescription: 'Choose on play restore 3 Hull of an ally or restore 2 Hull of

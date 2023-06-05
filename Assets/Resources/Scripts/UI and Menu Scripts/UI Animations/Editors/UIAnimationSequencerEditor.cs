@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(UIAnimationSequencer))]
+//[CustomEditor(typeof(UIAnimationSequencer))]
 public class UIAnimationSequencerEditor : Editor
 {
     SerializedProperty sequence;
@@ -9,24 +9,23 @@ public class UIAnimationSequencerEditor : Editor
 
     private void OnEnable()
     {
-        sequence = serializedObject.FindProperty("sequence");
-        uITransforms = serializedObject.FindProperty("uITransforms");
+        sequence = serializedObject.FindProperty("sequencer");
     }
 
-    public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
+    //public override void OnInspectorGUI()
+    //{
+    //    serializedObject.Update();
 
-        EditorGUI.BeginChangeCheck();
-        var sequencerArray = sequence;
-        int indexer = 0;
+    //    EditorGUI.BeginChangeCheck();
+    //    var sequencerArray = sequence;
+    //    int indexer = 0;
 
-        sequencerArray.GetArrayElementAtIndex(indexer).FindPropertyRelative("uITransforms").objectReferenceValue =
-            EditorGUILayout.ObjectField("uITransforms", sequencerArray.objectReferenceValue, typeof(Transform), true);
+    //    sequencerArray.GetArrayElementAtIndex(indexer).FindPropertyRelative("uITransform").objectReferenceValue =
+    //        EditorGUILayout.ObjectField("uITransforms", sequencerArray.objectReferenceValue, typeof(Transform), true);
 
-        if (EditorGUI.EndChangeCheck())
-        {
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
+    //    if (EditorGUI.EndChangeCheck())
+    //    {
+    //        serializedObject.ApplyModifiedProperties();
+    //    }
+    //}
 }

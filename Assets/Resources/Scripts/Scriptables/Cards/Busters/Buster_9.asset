@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 1
   attackDamage: 5
-  hull: 5
-  maxHull: 5
+  health: {x: 5, y: 5}
   shield: 6
   resourceCost: 7
   cardDescription: 'Give 2 Shields to a random ally at the end of the turn. '

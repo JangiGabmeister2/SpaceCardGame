@@ -17,8 +17,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   _attackType: 2
   attackDamage: 3
-  hull: 2
-  maxHull: 2
+  health: {x: 2, y: 2}
   shield: 2
   resourceCost: 4
   cardDescription: 'Choose Rush or on play deal 2 Damage. '
