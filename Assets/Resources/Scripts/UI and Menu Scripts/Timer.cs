@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
         if (timerOn && turnTimer > 0)
         {
             turnTimer -= Time.deltaTime;
-            timerText.text = turnTimer.ToString();
+            timerText.text = turnTimer.ToString("00:00");
         }
 
         if (timerOn && turnTimer <= 0)

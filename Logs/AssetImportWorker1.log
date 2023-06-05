@@ -528,3 +528,7 @@ Received Import Request.
   path: Assets/Resources/Scripts/Scriptables/Cards/Swarm/Swarm_13.asset
   artifactKey: Guid(6c614527b0703554d8d746561ad3dc7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Resources/Scripts/Scriptables/Cards/Swarm/Swarm_13.asset using Guid(6c614527b0703554d8d746561ad3dc7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83b7e8e6ea13572250752b7489f60c55') in 0.006520 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
