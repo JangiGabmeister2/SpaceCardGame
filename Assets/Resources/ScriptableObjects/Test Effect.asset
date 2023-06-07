@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: 1
   trigger: 0
-  attackChange: 12
+  attackChange: 0
   hullChange: 0
   shieldChange: 0
   costChange: 0
+  giveProperties: 00000000

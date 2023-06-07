@@ -33,6 +33,8 @@ public class CardEffect : ScriptableObject
         hullChange,
         shieldChange,
         costChange; //not too sure about this one chief
+    //Properties to add to a target (like give ally rush)
+    public List<UnitCard.Property> giveProperties;
 
     private UnitCard self;
     private UnitCard selected;
@@ -49,7 +51,7 @@ public class CardEffect : ScriptableObject
                 break;
             //TODO: This stuff probably needs some references to game board and play slots
             case Target.RandomAlly:
-                //replace placeholder var allyList
+                //set placeholder var allyList
                 ChangeValues(allyList[Random.Range(0, allyList.Count - 1)]);
                 break;
             case Target.AllAllies:
@@ -73,5 +75,7 @@ public class CardEffect : ScriptableObject
         card.hull += attackChange;
         card.shield += shieldChange;
         card.resourceCost += costChange;
+
+        card.properties.AddRange(giveProperties);
     }
 }

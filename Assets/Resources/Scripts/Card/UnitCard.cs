@@ -39,7 +39,7 @@ public class UnitCard : ScriptableObject
     #region Effects
     //WARNING this region is where my insanity begins
     public List<CardEffect> effects;
-    private UnityEvent //effects subscribe/listen to these trigger events
+    public UnityEvent //effects subscribe/listen to these trigger events
         onPlayed,
         passive,
         onAttack,
