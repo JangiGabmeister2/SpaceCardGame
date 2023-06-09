@@ -495,7 +495,7 @@ public class OwnedCards : MonoBehaviour
             cardCountPos3 -= 1;
             CardCountMax += 1;
             builtDeck.Add(cardSwarmer3);
-            cardCountTextPos2.text = cardCountPos2.ToString();
+            cardCountTextPos3.text = cardCountPos3.ToString();
         }
         if (cardCountPos3 > 0 && factionChange == Faction.IronSide && CardCountMax < 20)
         {
