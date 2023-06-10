@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardID: 107
   cardName: 
-  cardArt: {fileID: 0}
+  factionType: 0
+  cardArt: {fileID: 21300000, guid: 8542fed5d321ca840a2606a6995749c4, type: 3}
+  cardBackground: {fileID: 21300000, guid: aed58267850b8c745a08013f7f9f6bb3, type: 3}
   _attackType: 0
   attackDamage: 5
   hull: 2

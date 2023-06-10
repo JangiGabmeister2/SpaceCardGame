@@ -6,21 +6,24 @@ using UnityEngine.UI;
 
 public class OwnedCards : MonoBehaviour
 {
-
+    // a list of all owned cards for each faction
     public List<GameObject> ownedCardsSwarmer = new List<GameObject>();
     public List<GameObject> ownedCardsIronSide = new List<GameObject>();
     public List<GameObject> ownedCardsMidling = new List<GameObject>();
+
+    // a list of all cards put into the deck builder
     public List<GameObject> builtDeck = new List<GameObject>();
     public List<Transform> builtCardPlacements = new List<Transform>();
+
+    // the area in which to place the chosen cards for the custom deck
     public Transform deckPlacements;
+
+    // the max amount of cards in a deck
     private int CardCountMax;
 
     public RemoveFromDeck removeFromDeckClass;
 
-
-
     #region Card Placement Positions
-
     public Transform pos1;
     public Transform pos2;
     public Transform pos3;
@@ -36,14 +39,9 @@ public class OwnedCards : MonoBehaviour
     public Transform pos13;
     public Transform pos14;
     public Transform pos15;
-
-
-
-
     #endregion
 
     #region Card Counts
-
     public int cardCountPos1;
     public int cardCountPos2;
     public int cardCountPos3;
@@ -60,8 +58,6 @@ public class OwnedCards : MonoBehaviour
     public int cardCountPos14;
     public int cardCountPos15;
 
-
-
     public Text cardCountTextPos1;
     public Text cardCountTextPos2;
     public Text cardCountTextPos3;
@@ -77,15 +73,9 @@ public class OwnedCards : MonoBehaviour
     public Text cardCountTextPos13;
     public Text cardCountTextPos14;
     public Text cardCountTextPos15;
-
-
-
-
-
     #endregion
 
     #region cardGO's
-
     public GameObject cardSwarmer1;
     public GameObject cardSwarmer2;
     public GameObject cardSwarmer3;
@@ -148,14 +138,7 @@ public class OwnedCards : MonoBehaviour
     public GameObject cardMidling18;
     public GameObject cardMidling19;
     public GameObject cardMidling20;
-
-
-
-
-
-
     #endregion
-
 
     private void Start()
     {
@@ -165,12 +148,9 @@ public class OwnedCards : MonoBehaviour
         ChangeFaction(0);
 
         removeFromDeckClass = FindObjectOfType<RemoveFromDeck>();
-
     }
 
-
     #region Switch factions
-
     public enum Faction
     {
         Swarmer,
@@ -187,39 +167,30 @@ public class OwnedCards : MonoBehaviour
         switch (factionChange)
         {
             case Faction.Swarmer:
-
                 RemoveOwnedCardsIronSide();
                 RemoveOwnedCardsMidling();
                 RemoveCards();
                 AddSwarmerCardsToOwned();
                 SpawnOwnedCardsSwarmer();
                 break;
-
             case Faction.IronSide:
-
                 RemoveOwnedCardsSwarmer();
                 RemoveOwnedCardsMidling();
                 RemoveCards();
                 AddIronSideCardsToOwned();
                 SpawnOwnedCardsIronSide();
                 break;
-
             case Faction.Midling:
-
                 RemoveOwnedCardsSwarmer();
                 RemoveOwnedCardsIronSide();
                 RemoveCards();
                 AddMidlingCardsToOwned();
                 SpawnOwnedCardsMidling();
                 break;
-
             default:
-
                 Debug.Log("Something went Wrong");
-
                 break;
         }
-
     }
 
     public void ChangeFactionButton()
@@ -228,7 +199,6 @@ public class OwnedCards : MonoBehaviour
         {
             removeFromDeckClass.ClearDeck();
             ChangeFaction(1);
-
         }
         if (factionChange == Faction.IronSide)
         {
@@ -241,16 +211,10 @@ public class OwnedCards : MonoBehaviour
             ChangeFaction(0);
         }
     }
-
-
     #endregion
-
-
 
     public void SpawnOwnedCardsSwarmer()
     {
-
-
         Instantiate(ownedCardsSwarmer[0], builtCardPlacements[0]);
         Instantiate(ownedCardsSwarmer[1], builtCardPlacements[1]);
         Instantiate(ownedCardsSwarmer[2], builtCardPlacements[2]);
@@ -275,8 +239,6 @@ public class OwnedCards : MonoBehaviour
 
     public void SpawnOwnedCardsIronSide()
     {
-
-
         Instantiate(ownedCardsIronSide[0], builtCardPlacements[0]);
         Instantiate(ownedCardsIronSide[1], builtCardPlacements[1]);
         Instantiate(ownedCardsIronSide[2], builtCardPlacements[2]);
@@ -297,9 +259,6 @@ public class OwnedCards : MonoBehaviour
         Instantiate(ownedCardsIronSide[17], builtCardPlacements[17]);
         Instantiate(ownedCardsIronSide[18], builtCardPlacements[18]);
         Instantiate(ownedCardsIronSide[19], builtCardPlacements[19]);
-
-
-
     }
 
     public void SpawnOwnedCardsMidling()
@@ -324,7 +283,6 @@ public class OwnedCards : MonoBehaviour
         Instantiate(ownedCardsMidling[17], builtCardPlacements[17]);
         Instantiate(ownedCardsMidling[18], builtCardPlacements[18]);
         Instantiate(ownedCardsMidling[19], builtCardPlacements[19]);
-
     }
 
     public void RemoveOwnedCardsSwarmer()
@@ -365,7 +323,6 @@ public class OwnedCards : MonoBehaviour
         ownedCardsSwarmer.Add(cardSwarmer13);
         ownedCardsSwarmer.Add(cardSwarmer14);
         ownedCardsSwarmer.Add(cardSwarmer15);
-
     }
 
     public void AddIronSideCardsToOwned()
@@ -404,7 +361,6 @@ public class OwnedCards : MonoBehaviour
         ownedCardsMidling.Add(cardMidling13);
         ownedCardsMidling.Add(cardMidling14);
         ownedCardsMidling.Add(cardMidling15);
-
     }
 
     public void RemoveCards()
@@ -416,7 +372,6 @@ public class OwnedCards : MonoBehaviour
 
 
     #region Add Cards to Deck
-
     public void AddCardPos1ToDeck()
     {
         if (cardCountPos1 > 0 && factionChange == Faction.Swarmer && CardCountMax < 20)
@@ -929,9 +884,7 @@ public class OwnedCards : MonoBehaviour
 
     #endregion
 
-
     #region Remove Cards from Deck
-
     public void RemoveCardPos1FromDeck()
     {
         if (cardCountPos1 < 2 && factionChange == Faction.Swarmer && CardCountMax >= 0 )
@@ -1386,10 +1339,7 @@ public class OwnedCards : MonoBehaviour
 
     #endregion
 
-
     #region Add Card positions
-
-
     public void AddPositionsToList()
     {
         builtCardPlacements.Add(pos1);
@@ -1407,9 +1357,6 @@ public class OwnedCards : MonoBehaviour
         builtCardPlacements.Add(pos13);
         builtCardPlacements.Add(pos14);
         builtCardPlacements.Add(pos15);
-
-
-
     }
 
     private void AddCardCount()
@@ -1446,8 +1393,6 @@ public class OwnedCards : MonoBehaviour
         cardCountTextPos13.text = cardCountPos13.ToString();
         cardCountTextPos14.text = cardCountPos14.ToString();
         cardCountTextPos15.text = cardCountPos15.ToString();
-
     }
-
     #endregion
 }

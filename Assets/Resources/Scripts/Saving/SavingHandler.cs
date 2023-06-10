@@ -6,16 +6,36 @@ using UnityEngine.Events;
 
 public class SavingHandler : MonoBehaviour
 {
+    #region Instance Singleton
+    public static SavingHandler Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Debug.Log("Saving Handler already exists! Destorying duplicate!");
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
     [Header("Player Win Event")]
     public UnityEvent onMatchWin;
     [Header("Player Lose Event")]
     public UnityEvent onMatchLoss;
 
+    private List<UnitCard> cardCollection = new List<UnitCard>();
+
     //[SerializeField] AudioSource[] audioSources;
 
     private void Start()
     {
-
+            
     }
 
     //when called, gets all the card IDs of the cards in custom deck area
@@ -23,6 +43,7 @@ public class SavingHandler : MonoBehaviour
     //saves string into player prefs
     public void SaveChosenDeck()
     {
+        /*
         DeckBuild deckBuild = GameObject.Find("Deck Build")?.GetComponent<DeckBuild>();
         List<int> selectedDeck = new List<int>();
 
@@ -37,8 +58,10 @@ public class SavingHandler : MonoBehaviour
         string chosenDeck = string.Join(",", selectedDeck);
 
         PlayerPrefs.SetString("chosen_deck", chosenDeck);
+        */
     }
 
+    //returns a list of cards previously chosen in deck builder (if not, default deck)
     public List<UnitCard> GetChosenDeck()
     {
         //takes the string of card IDs from player prefs
@@ -56,22 +79,33 @@ public class SavingHandler : MonoBehaviour
         }
 
         List<UnitCard> deck = new List<UnitCard>();
-        OwnedCards collection = GameObject.Find("Card Layout Controller")?.GetComponent<OwnedCards>();
+        OwnedCardsRefactored collection = GameObject.Find("Card Layout Controller")?.GetComponent<OwnedCardsRefactored>();
 
+        //for all IDs of cards in chosen deck
         foreach (int cardID in chosenDeck)
         {
-            foreach (UnitCard cards in collection.ownedCards)
+            //for each faction of all owned cards
+            foreach (List<UnitCard> list in collection.ownedCards)
             {
-                //gets each card via card IDs and puts them into list
-                if (cards.cardID == cardID)
+                //for all cards in each faction
+                foreach (UnitCard cards in list)
                 {
-                    deck.Add(cards);
+                    //gets each card via card IDs and puts them into list
+                    if (cards.cardID == cardID)
+                    {
+                        deck.Add(cards);
+                    }
                 }
             }
         }
 
         //returns above list of cards
         return deck;
+    }
+
+    public List<UnitCard> UpdateCardCollection()
+    {
+        return null;
     }
 
     //gets the player's level to display when joining servers and during matches
