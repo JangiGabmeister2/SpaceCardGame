@@ -24,8 +24,7 @@ public class BackgroundTween : TransformTween
 
         s.Append(transform.DOScale(new Vector3(transform.localScale.x * 1.1f, transform.localScale.y * 1.1f), 50f)
             .SetDelay(2f)
-            .SetEase(Ease.InSine)
-            .SetLoops(-1, LoopType.Yoyo));
+            .SetEase(Ease.InSine));
     }
 
     private void Update()
