@@ -10,7 +10,9 @@ public class UnitCard : ScriptableObject
     //Card ID <faction><card num> e.g.<2><05> = 205
     public int cardID;
     public string cardName;
+    public FactionClass factionType;
     public Sprite cardArt;
+    public Sprite cardBackground;
     //Our two options for damagetype and the modular one I guess
     public enum AttackType
     {

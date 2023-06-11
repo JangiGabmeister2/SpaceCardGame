@@ -28,11 +28,13 @@ public class CardEffect : ScriptableObject
     public Triggers trigger;
 
     //changes the value by a number (leave as 0 to do nothing)
-    public int
+    public int 
         attackChange,
         hullChange,
         shieldChange,
         costChange; //not too sure about this one chief
+    //Properties to add to a target (like give ally rush)
+    public List<UnitCard.Property> giveProperties;
 
     private UnitCard self;
     private UnitCard selected;
@@ -49,11 +51,11 @@ public class CardEffect : ScriptableObject
                 break;
             //TODO: This stuff probably needs some references to game board and play slots
             case Target.RandomAlly:
-                //replace placeholder var allyList
+                //set placeholder var allyList
                 ChangeValues(allyList[Random.Range(0, allyList.Count - 1)]);
                 break;
             case Target.AllAllies:
-                foreach (UnitCard ally in allyList)
+                foreach(UnitCard ally in allyList)
                 {
                     ChangeValues(ally);
                 }
@@ -73,5 +75,7 @@ public class CardEffect : ScriptableObject
         card.hull += attackChange;
         card.shield += shieldChange;
         card.resourceCost += costChange;
+
+        card.properties.AddRange(giveProperties);
     }
 }
