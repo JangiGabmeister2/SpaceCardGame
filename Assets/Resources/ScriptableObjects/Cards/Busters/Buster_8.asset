@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardID: 208
   cardName: 
-  cardArt: {fileID: 0}
+  factionType: 1
+  cardArt: {fileID: 21300000, guid: 4996c485c7dfe8944bb952e2bd9565fc, type: 3}
+  cardBackground: {fileID: 21300000, guid: a306d6bf27a05d44aa0ab996ad876f19, type: 3}
   _attackType: 0
   attackDamage: 3
   hull: 6
-  maxHull: 6
   shield: 4
   resourceCost: 5
   cardDescription: Taunt.
+  properties: 
+  effects: []

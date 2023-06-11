@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardID: 113
   cardName: 
-  cardArt: {fileID: 0}
+  factionType: 0
+  cardArt: {fileID: 21300000, guid: 8542fed5d321ca840a2606a6995749c4, type: 3}
+  cardBackground: {fileID: 21300000, guid: aed58267850b8c745a08013f7f9f6bb3, type: 3}
   _attackType: 0
   attackDamage: 1
   hull: 5
-  maxHull: 5
   shield: 3
   resourceCost: 4
   cardDescription: 'When an ally dies, gain +1 damage. '
+  properties: 
+  effects: []

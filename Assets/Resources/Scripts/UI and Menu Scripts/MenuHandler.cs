@@ -36,7 +36,7 @@ public class MenuHandler : MonoBehaviour
 
     public GameObject gameplayUI;
     public GameObject overlay;
-
+    public GameObject optionsUI;
 
 
     public bool playerOneTurn;
@@ -138,6 +138,11 @@ public class MenuHandler : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+
     }
 
     #endregion
@@ -228,7 +233,7 @@ public class MenuHandler : MonoBehaviour
 
                 pauseButton.gameObject.SetActive(false);
                 CloseAllPanels();
-                //Close all active panels, then active the DeckBuilder panel.
+                optionsUI.SetActive(true);
                 panels[4].SetActive(true);
 
                 if (isInGame)
@@ -243,7 +248,7 @@ public class MenuHandler : MonoBehaviour
             case MenuStates.Gameplay:
                 CloseAllPanels();
                 pauseButton.gameObject.SetActive(true);
-                isInGame = true;
+                isInGame = true;    
                 gameplayUI.gameObject.SetActive(true);
                 overlay.gameObject.SetActive(true);
                 timerClass.timerOn = true;
@@ -251,10 +256,10 @@ public class MenuHandler : MonoBehaviour
                 break;
 
             case MenuStates.Pause:
-                CloseAllPanels();
+                //CloseAllPanels();
                 panels[5].SetActive(true);
                 pauseButton.gameObject.SetActive(false);
-                overlay.gameObject.SetActive(false);
+                //overlay.SetActive(false);
 
                 break;
 

@@ -1,30 +1,111 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class SavingHandler : MonoBehaviour
 {
+    #region Instance Singleton
+    public static SavingHandler Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Debug.Log("Saving Handler already exists! Destorying duplicate!");
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
     [Header("Player Win Event")]
     public UnityEvent onMatchWin;
     [Header("Player Lose Event")]
     public UnityEvent onMatchLoss;
 
+    private List<UnitCard> cardCollection = new List<UnitCard>();
+
+    //[SerializeField] AudioSource[] audioSources;
+
     private void Start()
     {
-        onMatchWin.AddListener(IncreaseWinCount);
-        onMatchLoss.AddListener(IncreaseLoseCount);
+            
     }
 
+    //when called, gets all the card IDs of the cards in custom deck area
+    //puts each ID into a string, separated by a comma
+    //saves string into player prefs
     public void SaveChosenDeck()
     {
-        //used in Deck Builder, after choosing a deck to play, saves deck to use for future matches
+        /*
+        DeckBuild deckBuild = GameObject.Find("Deck Build")?.GetComponent<DeckBuild>();
+        List<int> selectedDeck = new List<int>();
+
+        //gets the card IDs for every card in the built deck and saves them into a list
+        foreach (UnitCard item in deckBuild.deckBuildCards)
+        {
+            int itemID = item.cardID;
+            selectedDeck.Add(itemID);
+        }
+
+        //gets all card IDs in the list and puts them in a string then saves it into player prefs
+        string chosenDeck = string.Join(",", selectedDeck);
+
+        PlayerPrefs.SetString("chosen_deck", chosenDeck);
+        */
     }
 
-    public void GetChosenDeck()
+    //returns a list of cards previously chosen in deck builder (if not, default deck)
+    public List<UnitCard> GetChosenDeck()
     {
-        //before the match starts, gets deck data from each player's playerprefs
-        //if no deck was chosen (above), a default deck is automatically chosen
+        //takes the string of card IDs from player prefs
+        string savedDeck = PlayerPrefs.GetString("chosen_deck");
+
+        List<int> chosenDeck = new List<int>();
+
+        //separates each ID from separator/comma
+        string[] cardsString = savedDeck.Split(',');
+
+        foreach (string card in cardsString)
+        {
+            //turns the strings back into ints
+            chosenDeck.Add(int.Parse(card));
+        }
+
+        List<UnitCard> deck = new List<UnitCard>();
+        OwnedCardsRefactored collection = GameObject.Find("Card Layout Controller")?.GetComponent<OwnedCardsRefactored>();
+
+        //for all IDs of cards in chosen deck
+        foreach (int cardID in chosenDeck)
+        {
+            //for each faction of all owned cards
+            foreach (List<UnitCard> list in collection.ownedCards)
+            {
+                //for all cards in each faction
+                foreach (UnitCard cards in list)
+                {
+                    //gets each card via card IDs and puts them into list
+                    if (cards.cardID == cardID)
+                    {
+                        deck.Add(cards);
+                    }
+                }
+            }
+        }
+
+        //returns above list of cards
+        return deck;
+    }
+
+    public List<UnitCard> UpdateCardCollection()
+    {
+        return null;
     }
 
     //gets the player's level to display when joining servers and during matches
@@ -35,44 +116,44 @@ public class SavingHandler : MonoBehaviour
         return level;
     }
 
-    //called at the end of each match
-    public void GetPlayerValuesRemaining()
+    //returns amount of experience earned depending on match win or loss
+    public int ExperienceEarned(bool matchWin = false)
     {
-        //used for experience calculations
-        //the higher the health/morale at match end, the more experience gained
-    }
+        int xpCurrent = PlayerPrefs.GetInt("experience_points", 0);
 
-    public int GetNumberOfCardsRemaining()
-    {
-        int count = 0;
-        return count;
-    }
+        //match won = 2 xp
+        if (matchWin)
+        {
+            xpCurrent += 2;
+        }
+        //match loss = 1 xp
+        else
+        {
+            xpCurrent += 1;
+        }
 
-    public void CalculateExperienceEarned()
-    {
-        //experience is calculated by:
-        //number of cards used, the level of cards used,
-        //number of turns played, time elapsed during each turn,
-        //amount of health/morale/resources/cards remaining, etc
-
-        //match loss = exp earned / 2
-
-        //calculate experience
+        return xpCurrent;
     }
 
     public void CalculateCardsEarned()
     {
-        //cards that are unlocked at the end of the match, if any, are calculated on:
-        //most used attack types and most used faction types
+        int xpLevel = PlayerPrefs.GetInt("experience_points", 0);
 
-        //match loss = cards earned / 2
+        //if xp level after gaining current match xp reaches 10, player increases level and gains new card
+        if (xpLevel + ExperienceEarned() >= 10)
+        {
+            IncreasePlayerLevel();
+
+            //get new card
+
+            xpLevel = xpLevel - 10;
+        }
+
+        PlayerPrefs.SetInt("experience_points", xpLevel);
     }
 
     private void IncreasePlayerLevel()
     {
-        //after experience calculations
-        //if next level requirements are reached with total experience gained
-
         //increase player level
         int oldLevel = PlayerPrefs.GetInt("player_level", 1);
         PlayerPrefs.SetInt("player_level", oldLevel + 1);
@@ -91,4 +172,20 @@ public class SavingHandler : MonoBehaviour
         int previousLosses = PlayerPrefs.GetInt("match_losses", 0);
         PlayerPrefs.SetInt("match_losses", previousLosses + 1);
     }
+
+    #region Settings
+    //public void SaveAudioSettings(string audioSourceName)
+    //{
+    //    float savedVolume = PlayerPrefs.GetFloat($"{audioSourceName}_volume", 50f);
+
+    //    foreach (AudioSource sources in audioSources)
+    //    {
+    //        if (sources.outputAudioMixerGroup.name == audioSourceName && sources.volume != savedVolume)
+    //        {
+    //            float newVolume = sources.volume;
+    //            PlayerPrefs.SetFloat($"{audioSourceName}_volume", newVolume);
+    //        }
+    //    }
+    //}
+    #endregion
 }

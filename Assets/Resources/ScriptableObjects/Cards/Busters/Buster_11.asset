@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752d764d7456cd34aac8d4ff26babc2c, type: 3}
   m_Name: Buster_11
   m_EditorClassIdentifier: 
-  cardID: 101
+  cardID: 211
   cardName: 
-  cardArt: {fileID: 0}
-  _attackType: 0
-  attackDamage: 1
-  hull: 1
-  maxHull: 1
-  shield: 1
-  resourceCost: 1
-  cardDescription: 
+  factionType: 1
+  cardArt: {fileID: 21300000, guid: 4996c485c7dfe8944bb952e2bd9565fc, type: 3}
+  cardBackground: {fileID: 21300000, guid: a306d6bf27a05d44aa0ab996ad876f19, type: 3}
+  _attackType: 1
+  attackDamage: 3
+  hull: 4
+  shield: 4
+  resourceCost: 5
+  cardDescription: 'Your next card played costs (2) less. '
+  properties: 
+  effects: []

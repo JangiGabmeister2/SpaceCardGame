@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardID: 312
   cardName: 
-  cardArt: {fileID: 0}
+  factionType: 2
+  cardArt: {fileID: 21300000, guid: 6a981a4f1349bd943826c5ff6b391f90, type: 3}
+  cardBackground: {fileID: 21300000, guid: 03edc2cba8744ca438fbfc423d2f2000, type: 3}
   _attackType: 0
   attackDamage: 2
   hull: 3
-  maxHull: 3
   shield: 2
   resourceCost: 4
   cardDescription: 'Choose on play restore 3 Hull of an ally or restore 2 Hull of
     a random ally at the end of turn. '
+  properties: 
+  effects: []
