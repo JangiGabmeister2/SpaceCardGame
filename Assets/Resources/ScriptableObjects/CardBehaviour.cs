@@ -10,6 +10,7 @@ public class CardBehaviour : MonoBehaviour
     //Making an instance of the card scriptable object (change this one)
     [SerializeField] private UnitCard _cardInstance;
 
+    public UnitCard currentTarget;
     public List<UnitCard> allies;
     public List<UnitCard> enemies;
     
@@ -23,8 +24,23 @@ public class CardBehaviour : MonoBehaviour
         //_cardInstance.onPlayed.Invoke();
         _cardInstance.OnPlayed();
     }
-    UnitCard SelectTarget(UnitCard target)
+    void SelectCard(UnitCard target)
     {
+        TargetPriorityCheck(target);
+        if (target != null)
+        {
+            currentTarget = target;
+            if (_cardInstance.properties.Contains(UnitCard.Property.Spread))
+            {
+                AdjacentTargetsCheck(target);
+            }
+        }
+    }
+
+    UnitCard TargetPriorityCheck(UnitCard target)
+    {
+        if (target == null) return null;
+        
         //if target card has taunt it has the priorty to be targeted
         if (target.properties.Contains(UnitCard.Property.Taunt))
         {
@@ -47,8 +63,21 @@ public class CardBehaviour : MonoBehaviour
         return target;
     }
 
-    void Update()
+    void AdjacentTargetsCheck(UnitCard target)
     {
-        
+        if (target == null) return;
+
+        int targetIndex = enemies.IndexOf(target);
+        if (targetIndex - 1 >= 0)
+        {
+            //idk how exactly we wanna handle this information
+            //like if it just changes UI and then gets called again when turn is resolving or what
+        }
+        if (targetIndex + 1 < enemies.Count)
+        {
+            //repeat for this one
+        }
     }
+
+    //TODO: Rush?
 }
