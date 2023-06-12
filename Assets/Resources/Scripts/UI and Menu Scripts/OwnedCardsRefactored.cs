@@ -12,30 +12,32 @@ public enum FactionClass
 public class OwnedCardsRefactored : MonoBehaviour
 {
     //prefab for the base card
-    [SerializeField] GameObject cardPrefab;
+    [SerializeField] GameObject _cardPrefab;
     //card holders in scroll rect
-    [SerializeField] FactionClass faction = FactionClass.Swarmer;
+    [SerializeField] FactionClass _faction = FactionClass.Swarmer;
     //transform of custom deck builder
-    [SerializeField] Transform customDeck;
-    //a list of lists, for every owned card in every existing faction
+    [SerializeField] Transform _customDeck;
+    //a list of lists, for every owned card in every existing _faction
     public List<UnitCard>[] ownedCards = new List<UnitCard>[3];
     [SerializeField]
-    List<UnitCard> swarmers = new List<UnitCard>(),
-        ironSide = new List<UnitCard>(),
-        midling = new List<UnitCard>();
+    List<UnitCard> _swarmers = new List<UnitCard>(),
+        _ironSide = new List<UnitCard>(),
+        _midling = new List<UnitCard>();
     //a list of all cards put into the deck builder
-    [SerializeField] List<UnitCard> builtDeck = new List<UnitCard>();
+    [SerializeField] List<GameObject> _builtDeck = new List<GameObject>();
     //list of cards in collection
-    [SerializeField] private List<GameObject> cards = new List<GameObject>();
+    [SerializeField] private List<GameObject> _cards = new List<GameObject>();
 
 
     private void Awake()
     {
-        cards.Capacity = 20;
-        faction = FactionClass.Swarmer;
-        ownedCards = new List<UnitCard>[] { swarmers, ironSide, midling };
+        _cards.Capacity = 15;
+        _builtDeck.Capacity = _customDeck.childCount;
+        _faction = FactionClass.Swarmer;
+        ownedCards = new List<UnitCard>[] { _swarmers, _ironSide, _midling };
     }
 
+    //instantiates all owned cards into scroll transform at the start
     private void Start()
     {
         PopulateCardHolder();
@@ -43,35 +45,37 @@ public class OwnedCardsRefactored : MonoBehaviour
 
     private void Update()
     {
-        if (builtDeck.Capacity > 20)
+        if (_builtDeck.Capacity > 20)
         {
-            builtDeck.Capacity = 20;
+            _builtDeck.Capacity = 20;
         }
 
-        MoveToCustomDeck();
+        //MoveToCustomDeck();
     }
 
-    private void MoveToCustomDeck()
-    {
-        for (int i = 0; i < cards.Count; i++)
-        {
-            if (cards[i].GetComponent<CardContents>().doublClicked)
-            {
-                if (!builtDeck.Contains(cards[i].GetComponent<CardContents>().cardScriptableObject)) return;
-
-                builtDeck[i] = Instantiate(cardPrefab, customDeck, false).GetComponent<CardContents>().cardScriptableObject;
-            }
-        }
-    }
+    //private void MoveToCustomDeck()
+    //{
+    //    for (int i = 0; i < _cards.Count; i++)
+    //    {
+    //        if (_cards[i].GetComponent<CardContents>().doublClicked)
+    //        {
+    //            if (_builtDeck.Contains(_cards[i].gameObject)) return;
+    //
+    //            _builtDeck[i] = _cards[i].gameObject;
+    //
+    //            Destroy(_cards[i].gameObject);
+    //        }
+    //    }
+    //}
 
     private void PopulateCardHolder()
     {
         //CheckForNewCards();
 
-        for (int i = 0; i < cards.Count; i++)
+        for (int i = 0; i < _cards.Count; i++)
         {
-            cardPrefab.GetComponent<CardContents>().cardScriptableObject = GetScriptableObjectViaFaction(i);
-            cards[i] = Instantiate(cardPrefab, gameObject.transform, false);
+            _cardPrefab.GetComponent<CardContents>().cardScriptableObject = GetScriptableObjectViaFaction(i);
+            _cards[i] = Instantiate(_cardPrefab, gameObject.transform, false);
         }
     }
 
@@ -79,7 +83,7 @@ public class OwnedCardsRefactored : MonoBehaviour
     {
         foreach (List<UnitCard> list in ownedCards)
         {
-            if (faction == list[index].factionType)
+            if (_faction == list[index].factionType)
             {
                 return list[index];
             }
@@ -90,22 +94,22 @@ public class OwnedCardsRefactored : MonoBehaviour
 
     public void ChangeFactionType()
     {
-        if (faction == FactionClass.Ironside)
+        if (_faction == FactionClass.Ironside)
         {
-            faction = FactionClass.Midling;
+            _faction = FactionClass.Midling;
         }
-        else if (faction == FactionClass.Midling)
+        else if (_faction == FactionClass.Midling)
         {
-            faction = FactionClass.Swarmer;
+            _faction = FactionClass.Swarmer;
         }
         else
         {
-            faction = FactionClass.Ironside;
+            _faction = FactionClass.Ironside;
         }
 
-        for (int i = 0; i < cards.Count; i++)
+        for (int i = 0; i < _cards.Count; i++)
         {
-            Destroy(cards[i].gameObject);
+            Destroy(_cards[i].gameObject);
         }
 
         PopulateCardHolder();
