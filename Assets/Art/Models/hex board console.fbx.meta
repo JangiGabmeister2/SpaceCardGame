@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Console
     second: {fileID: 2100000, guid: 436e4a2216b05864f9bebedd2891decf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hex Tile
+    second: {fileID: 2100000, guid: f2c91e3611323be4a960a34c2a2a29dd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
