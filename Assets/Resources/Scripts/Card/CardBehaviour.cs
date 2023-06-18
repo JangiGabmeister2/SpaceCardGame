@@ -80,4 +80,22 @@ public class CardBehaviour : MonoBehaviour
         //successfully target enemy
         return target;
     }
+
+    void AdjacentTargetsCheck(UnitCard target)
+    {
+        if (target == null) return;
+
+        int targetIndex = enemies.IndexOf(target);
+        if (targetIndex - 1 >= 0)
+        {
+            //idk how exactly we wanna handle this information
+            //like if it just changes UI and then gets called again when turn is resolving or what
+        }
+        if (targetIndex + 1 < enemies.Count)
+        {
+            //repeat for this one
+        }
+    }
+
+    //TODO: Rush?
 }

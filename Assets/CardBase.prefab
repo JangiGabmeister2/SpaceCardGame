@@ -564,6 +564,7 @@ MonoBehaviour:
   cardSprite: {fileID: 8229259707179589263}
   cardSO: {fileID: 0}
   blankCard: {fileID: 11400000, guid: 39ba6774fa15646e8a2bafa503738d2e, type: 2}
+  cardBehaviour: {fileID: 0}
   cover: {fileID: 3032600829860327212}
   isClicked: 0
   isHovered: 0
@@ -577,13 +578,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8229259707166357038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7892747788f40134faf61df021a1a2d2, type: 3}
+  m_Script: {fileID: 11500000, guid: a82ad5c9396de924995a75a763df2ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCard: {fileID: 0}
-  _cardInstance: {fileID: 0}
+  cardInstance: {fileID: 0}
   allies: []
   enemies: []
+  isUpdating: 0
 --- !u!1 &8229259707179589257
 GameObject:
   m_ObjectHideFlags: 0

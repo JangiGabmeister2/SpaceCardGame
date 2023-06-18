@@ -581,6 +581,7 @@ MonoBehaviour:
   cardSO: {fileID: 11400000, guid: 39ba6774fa15646e8a2bafa503738d2e, type: 2}
   clickedMat: {fileID: 2100000, guid: 0bd4bb87fb6f54249a2e58576e7ae366, type: 2}
   baseMat: {fileID: 2100000, guid: 0a5389d2256c1478b8bdfd94be38afa2, type: 2}
+  cardBehaviour: {fileID: 0}
   deckBehaviour: {fileID: 0}
 --- !u!114 &2121785267043951964
 MonoBehaviour:
@@ -591,13 +592,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8229259707166357038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7892747788f40134faf61df021a1a2d2, type: 3}
+  m_Script: {fileID: 11500000, guid: a82ad5c9396de924995a75a763df2ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCard: {fileID: 0}
-  _cardInstance: {fileID: 0}
+  cardInstance: {fileID: 0}
   allies: []
   enemies: []
+  isUpdating: 0
 --- !u!1 &8229259707179589257
 GameObject:
   m_ObjectHideFlags: 0
