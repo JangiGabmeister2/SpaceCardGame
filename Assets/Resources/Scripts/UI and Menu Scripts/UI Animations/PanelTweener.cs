@@ -7,11 +7,15 @@ public class PanelTweener : MonoBehaviour
 {
     public void PlayTweenIn()
     {
-        transform.DOLocalMoveY(transform.localPosition.y + -transform.localPosition.y, 3f).SetEase(Ease.InOutElastic);
+        transform.localPosition = new Vector2(0f, -1000f);
+        transform.DOLocalMove(new Vector2(0f, 0f), .5f)
+            .SetEase(Ease.InOutBack);
     }
 
     public void PlayTweenOut()
     {
-        transform.DOLocalMoveY(transform.localPosition.y + -transform.localPosition.y, 3f).SetEase(Ease.InOutBack).Flip();        
+        transform.localPosition = new Vector2(0f, 0f);
+        transform.DOLocalMove(new Vector2(0f, -1000f), .5f)
+            .SetEase(Ease.InOutBack);
     }
 }

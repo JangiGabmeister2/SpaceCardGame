@@ -159,6 +159,18 @@ public class MenuHandler : MonoBehaviour
             panels[i].SetActive(false);
         }
     }
+    
+    //same as above, but with an exception of a specific panel
+    public void CloseAllPanels(int exception)
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            panels[i].SetActive(false);
+        }
+        
+        //leaves specific panel active
+        panels[exception].SetActive(true);
+    }
 
     //Sets the UI and overlay as false so that nothing can be clicked once the game is lost.
     //This function also will double for 'losing the game' 
@@ -246,7 +258,7 @@ public class MenuHandler : MonoBehaviour
                 break;
 
             case MenuStates.Gameplay:
-                CloseAllPanels();
+                CloseAllPanels(5);
                 pauseButton.gameObject.SetActive(true);
                 isInGame = true;    
                 gameplayUI.gameObject.SetActive(true);
