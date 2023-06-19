@@ -81,7 +81,7 @@ public class GameplayStateMachine : MonoBehaviour
             timerClass.turnTimer = 45;
             Debug.Log("Player 2 turn");
         }
-        else if (gameplayState == GameplayState.Player1Turn)
+        else if (gameplayState == GameplayState.Player2Turn)
         {
             gameplayState = GameplayState.Player1Turn;
             timerClass.turnTimer = 45;

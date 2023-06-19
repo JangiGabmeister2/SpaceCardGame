@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4833278c02e370a48bdd7fff7a5289c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnTimer: 15
+  turnTimer: 45
   timerOn: 0
   timerText: {fileID: 1397445493}
 --- !u!1 &314272927
@@ -1804,7 +1804,7 @@ MonoBehaviour:
   m_Elasticity: 0.37
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 5
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 483453451}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -1929,7 +1929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 954.683, y: 0}
+  m_AnchoredPosition: {x: 954.68396, y: 0}
   m_SizeDelta: {x: 2709.3662, y: 160.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &633221689
@@ -4496,8 +4496,6 @@ MonoBehaviour:
   gameplayUI: {fileID: 1764424928}
   overlay: {fileID: 1624981866}
   optionsUI: {fileID: 2137325635}
-  playerOneTurn: 0
-  playerTwoTurn: 0
   isInGame: 0
   menuState: 0
 --- !u!1 &1448175579
@@ -5979,7 +5977,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Main Menu
+          m_StringArgument: Main Menu 2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1417377533}
@@ -6451,8 +6449,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1417377533}
-        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+      - m_Target: {fileID: 2076298824}
+        m_TargetAssemblyTypeName: GameplayStateMachine, Assembly-CSharp
         m_MethodName: EndTurn
         m_Mode: 1
         m_Arguments:
@@ -6501,6 +6499,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057213296}
   m_CullTransparentMesh: 1
+--- !u!1 &2076298823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2076298825}
+  - component: {fileID: 2076298824}
+  m_Layer: 0
+  m_Name: GameplayStatemachine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2076298824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076298823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a1a67e7d636764f810544b6b185fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplayState: 0
+--- !u!4 &2076298825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076298823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 741.00793, y: 306.60587, z: 2.7634888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2132142781
 GameObject:
   m_ObjectHideFlags: 0
@@ -7031,7 +7074,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Main Menu
+          m_StringArgument: Main Menu 2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1417377533}
