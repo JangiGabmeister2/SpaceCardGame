@@ -38,11 +38,9 @@ public class MenuHandler : MonoBehaviour
     public GameObject overlay;
     public GameObject optionsUI;
 
-
-    public bool playerOneTurn;
-    public bool playerTwoTurn;
     public bool isInGame;
     Timer timerClass;
+    GameplayStateMachine gameplayStateMachineClass;
 
     public enum MenuStates
     {
@@ -75,14 +73,15 @@ public class MenuHandler : MonoBehaviour
         returnToGame.gameObject.SetActive(false);
         gameplayUI.gameObject.SetActive(false);
         timerClass = FindObjectOfType<Timer>();
+        gameplayStateMachineClass = FindObjectOfType<GameplayStateMachine>();
     }
 
     private void Update()
     {
-        //This was to just test the coin flip function
-        if (Input.GetKeyDown(KeyCode.F))
+        //Testing Purpose Only
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            CoinToss();
+            WinGame();
         }
     }
 
@@ -91,7 +90,8 @@ public class MenuHandler : MonoBehaviour
     {
         // Join a server
         CloseAllPanels();
-        //MenuStates menuState = MenuStates.GamePlay;
+        //menuState = MenuStates.JoinGame;
+
         ChangeScene("Gameplay");
     }
 
@@ -99,20 +99,9 @@ public class MenuHandler : MonoBehaviour
     {
         //Host a server
         CloseAllPanels();
-        //MenuStates menuState = MenuStates.GamePlay;
+        //menuState = MenuStates.HostGame;
         ChangeScene("Gameplay");
     }
-
-    /*public void DeckBuilder()
-    {
-        // Go to build deck.
-    }
-
-    public void OptionsMenu()
-    {
-        //Go to options Menu
-    }*/
-    //This is the back button for the 'settings' menu
     public void MainMenuOptionsBackButton()
     {
         //Save prefs?
@@ -128,13 +117,6 @@ public class MenuHandler : MonoBehaviour
         panels[0].SetActive(true);
     }
 
-    public void EndTurn()
-    {
-        //Change to enemy turn
-        timerClass.turnTimer = 15;
-
-        Debug.Log("Enemy turn now");
-    }
     public void QuitGame()
     {
         Application.Quit();
@@ -177,14 +159,17 @@ public class MenuHandler : MonoBehaviour
     public void ForfeitGame()
     {
         //Concede or Morale = 0
+        gameplayStateMachineClass.gameplayState = GameplayStateMachine.GameplayState.Lose;
         gameplayUI.gameObject.SetActive(false);
         overlay.gameObject.SetActive(false);
         CloseAllPanels();
         panels[7].SetActive(true);
+
     }
 
     public void WinGame()
     {
+        gameplayStateMachineClass.gameplayState = GameplayStateMachine.GameplayState.Win;
         gameplayUI.gameObject.SetActive(false);
         overlay.gameObject.SetActive(false);
         CloseAllPanels();
@@ -216,7 +201,7 @@ public class MenuHandler : MonoBehaviour
 
                 //if Connection is made:
                 //JoinGame();
-                //CloseAllPanels();
+
 
                 break;
             case MenuStates.HostGame:
@@ -227,7 +212,7 @@ public class MenuHandler : MonoBehaviour
 
                 //if Connection is made:
                 //HostGame();
-                //CloseAllPanels();
+
 
 
                 break;
@@ -264,6 +249,7 @@ public class MenuHandler : MonoBehaviour
                 gameplayUI.gameObject.SetActive(true);
                 overlay.gameObject.SetActive(true);
                 timerClass.timerOn = true;
+                gameplayStateMachineClass.gameplayState = GameplayStateMachine.GameplayState.GameStart;
 
                 break;
 
@@ -300,27 +286,6 @@ public class MenuHandler : MonoBehaviour
 
     }
 
-    //This fucntion determines who will go first after starting a match.
-    private void CoinToss()
-    {
-        int coinToss = Random.Range(0, 100);
-
-        if (coinToss <= 50)
-        {
-            playerOneTurn = true;
-            playerTwoTurn = false;
-
-            Debug.Log("player one turn");
-        }
-        else
-        {
-            playerOneTurn = false;
-            playerTwoTurn = true;
-            Debug.Log("player two turn");
-        }
-
-        Debug.Log(coinToss);
-    }
 
 
 
