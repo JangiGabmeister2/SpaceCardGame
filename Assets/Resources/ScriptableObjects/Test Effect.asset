@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcee9dfe798a6864b832e61a9fd68ffc, type: 3}
   m_Name: Test Effect
   m_EditorClassIdentifier: 
-  target: 1
-  trigger: 0
-  attackChange: 0
+  target: 3
+  trigger: 2
+  attackChange: 1
   hullChange: 0
   shieldChange: 0
   costChange: 0

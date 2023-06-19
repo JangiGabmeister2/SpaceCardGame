@@ -25,6 +25,8 @@ public class DeckBasePrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public CardBehaviour cardBehaviour;
     public DeckBehaviour deckBehaviour;
 
+    public DeckBasePrefab target;
+
     private void Start()
     {
         cardBehaviour = GetComponent<CardBehaviour>();
@@ -117,12 +119,28 @@ public class DeckBasePrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (isEnemyDeck && cardSO != blankCard)
+        //select player card on field
+        if (deckBehaviour.clickedCard == null & !isEnemyDeck)
+        {
+            deckBehaviour.clickedCard = this.gameObject;
+            return;
+        }
+        //view enemy card
+        if (isEnemyDeck & cardSO != blankCard)
         {
             deckBehaviour.HoverPanel(true, cardSO);
             return;
         }
+
+        //targeting enemy
+        if (isEnemyDeck & deckBehaviour.clickedCard.GetComponent<DeckBasePrefab>())
+        {
+            deckBehaviour.clickedCard.GetComponent<DeckBasePrefab>().target = this;
+            deckBehaviour.clickedCard = null;
+            return;
+        }
         
+        //if selected card from hand is played onto a blank field slot
         if (deckBehaviour.clickedCard && cardSO == blankCard)
         {
             //if the deck behaviour has a clicked card and this card is placeable then place the card
@@ -133,6 +151,11 @@ public class DeckBasePrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             cover.SetActive(false);
             
             deckBehaviour.clickedCard = null;
+        }
+        else if (cardSO != blankCard)
+        {
+            //if card is in play then select it
+            deckBehaviour.clickedCard = gameObject;
         }
         else
         {

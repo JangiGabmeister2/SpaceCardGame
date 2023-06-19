@@ -7,6 +7,7 @@ public class CardBehaviour : MonoBehaviour
 {
     
     //DO NOT CHANGE baseCard
+    [SerializeField]
     internal UnitCard baseCard;
     //Making an instance of the card scriptable object (change this one)
     public UnitCard cardInstance;
@@ -15,7 +16,11 @@ public class CardBehaviour : MonoBehaviour
     public List<UnitCard> enemies;
 
     public bool isUpdating;
-    
+
+    private void Awake()
+    {
+        cardInstance = Instantiate(baseCard);
+    }
     void Start()
     {
         isUpdating = true;
@@ -56,6 +61,10 @@ public class CardBehaviour : MonoBehaviour
     {
         //_cardInstance.onPlayed.Invoke();
         cardInstance.OnPlayed();
+    }
+    void TurnEnd()
+    {
+        cardInstance.OnTurnEnd();
     }
     UnitCard SelectTarget(UnitCard target)
     {

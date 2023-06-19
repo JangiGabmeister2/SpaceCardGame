@@ -19,6 +19,9 @@ public class UnitCard : ScriptableObject
         Kinetic, Energy, Modular
     }
 
+    public enum CardPlayState { InDeck, Held, Played, IsDead };
+    public CardPlayState cardPlayState;
+
     [Header("Stats")]
     [SerializeField] private AttackType _attackType;
     //stats that change
@@ -50,6 +53,7 @@ public class UnitCard : ScriptableObject
         onAllyDeath;
     private void OnEnable()
     {
+        cardPlayState = CardPlayState.InDeck;
         //Looks through effects list and sets up the triggers on awake
         AddEffectsToTriggers();
     }

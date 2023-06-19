@@ -21,6 +21,7 @@ public class DeckBehaviour : MonoBehaviour
     public GameObject[] handPos; //The position of the hand
     public GameObject[] enemyPos; //The position of the enemy deck
     public GameObject[] covers; //the covers for the deck
+    public GameObject[] enemyCovers; //the covers for the deck
 
     public UnitCard blankCard;
 
@@ -60,19 +61,34 @@ public class DeckBehaviour : MonoBehaviour
     //TODO: GET THIS TO WORK
     public void ShowPlaceable()
     {
-        if (clickedCard)
-        {
-            foreach (var cover in covers)
-            {
-                cover.GetComponent<MeshRenderer>().material.color = Color.magenta;
-            }
-        }
-        else
+        //if no card selected
+        if (clickedCard == null)
         {
             foreach (var cover in covers)
             {
                 cover.GetComponent<MeshRenderer>().material.color = Color.white;
             }
+            return;
+        }
+
+        DeckBasePrefab selectedInPlay = clickedCard.GetComponent<DeckBasePrefab>();
+        //if selected card is from hand
+        if (selectedInPlay==null)
+        {
+            foreach (var cover in covers)
+            {
+                cover.GetComponent<MeshRenderer>().material.color = Color.green;
+            }
+            return;
+        }
+        //if selected card is in play already
+        if (selectedInPlay != null)
+        {
+            foreach (var cover in enemyCovers)
+            {
+                cover.GetComponent<MeshRenderer>().material.color = Color.red;
+            }
+            return;
         }
     }
 
@@ -80,7 +96,7 @@ public class DeckBehaviour : MonoBehaviour
     {
         ShowPlaceable();
         
-        ShaderLogic();
+        //ShaderLogic();
         
         HoverLogic();
 
@@ -147,6 +163,7 @@ public class DeckBehaviour : MonoBehaviour
             {
                 Debug.LogWarning("PlayerPickedUp " + drawPile[count]);
                 hand[i] = drawPile[count];
+                drawPile[count].cardPlayState = UnitCard.CardPlayState.Held;
                 drawPile.RemoveAt(count); //Remove card from draw list
                 break;
             }
@@ -196,16 +213,7 @@ public class DeckBehaviour : MonoBehaviour
         //randomly get cards from deck into hand
         for (var i = 0; i < _handLimit; i++)
         {
-            //temp card = current card
-            var temp = drawPile[i];
-            //random number in card list
-            var randomIndex = Random.Range(i, drawPile.Count);
-            drawPile[i] = drawPile[randomIndex];
-            drawPile[randomIndex] = temp;
-            //add the new card into hand
-            hand.Add(temp);
-            //take card out of circulation
-            drawPile.Remove(temp);
+            DrawCard();
         }
         foreach (var card in drawPile)
         {
