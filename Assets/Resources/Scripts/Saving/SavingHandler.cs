@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -41,14 +39,12 @@ public class SavingHandler : MonoBehaviour
     //when called, gets all the card IDs of the cards in custom deck area
     //puts each ID into a string, separated by a comma
     //saves string into player prefs
-    public void SaveChosenDeck()
+    public void SaveChosenDeck(List<UnitCard> cardList)
     {
-        /*
-        DeckBuild deckBuild = GameObject.Find("Deck Build")?.GetComponent<DeckBuild>();
         List<int> selectedDeck = new List<int>();
 
         //gets the card IDs for every card in the built deck and saves them into a list
-        foreach (UnitCard item in deckBuild.deckBuildCards)
+        foreach (UnitCard item in cardList)
         {
             int itemID = item.cardID;
             selectedDeck.Add(itemID);
@@ -58,7 +54,6 @@ public class SavingHandler : MonoBehaviour
         string chosenDeck = string.Join(",", selectedDeck);
 
         PlayerPrefs.SetString("chosen_deck", chosenDeck);
-        */
     }
 
     //returns a list of cards previously chosen in deck builder (if not, default deck)
