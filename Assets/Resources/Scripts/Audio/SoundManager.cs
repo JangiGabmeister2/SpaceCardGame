@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Sound Manager instance already exists. Destroying component.");
+            Debug.Log("Sound Manager instance already exists. Destroying duplicate!");
             Destroy(gameObject);
         }
     }

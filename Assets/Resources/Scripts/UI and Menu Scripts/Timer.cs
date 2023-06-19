@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float turnTimer = 15;
+    public float turnTimer = 45;
     public bool timerOn = false;
 
     public Text timerText;
 
-    MenuHandler menuHandlerClass;
+    GameplayStateMachine gameplayStateMachineClass;
 
     private void Start()
     {
-        menuHandlerClass = FindObjectOfType<MenuHandler>();        
+        gameplayStateMachineClass = FindObjectOfType<GameplayStateMachine>();        
     }
 
     private void Update()
@@ -27,8 +27,7 @@ public class Timer : MonoBehaviour
 
         if (timerOn && turnTimer <= 0)
         {
-            menuHandlerClass.EndTurn();
-            turnTimer = 15;
+            gameplayStateMachineClass.EndTurn();
         }
     }
 

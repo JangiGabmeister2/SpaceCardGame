@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum FactionClass
 {
@@ -17,24 +17,38 @@ public class OwnedCardsRefactored : MonoBehaviour
     [SerializeField] FactionClass _faction = FactionClass.Swarmer;
     //transform of custom deck builder
     [SerializeField] Transform _customDeck;
+    [SerializeField] private GameObject _warning;
+    [SerializeField] private Button _saveButton;
     //a list of lists, for every owned card in every existing _faction
+    [Space(20)]
     public List<UnitCard>[] ownedCards = new List<UnitCard>[3];
     [SerializeField]
     List<UnitCard> _swarmers = new List<UnitCard>(),
         _ironSide = new List<UnitCard>(),
         _midling = new List<UnitCard>();
     //a list of all cards put into the deck builder
-    [SerializeField] List<GameObject> _builtDeck = new List<GameObject>();
+    [SerializeField] List<UnitCard> _builtDeck = new List<UnitCard>();
     //list of cards in collection
-    [SerializeField] private List<GameObject> _cards = new List<GameObject>();
-
+    [SerializeField] List<GameObject> _cards = new List<GameObject>();
 
     private void Awake()
     {
         _cards.Capacity = 15;
         _builtDeck.Capacity = _customDeck.childCount;
+
         _faction = FactionClass.Swarmer;
+
         ownedCards = new List<UnitCard>[] { _swarmers, _ironSide, _midling };
+    }
+
+    private void OnEnable()
+    {
+        _builtDeck.Clear();
+
+        for (int i = 0; i < _customDeck.childCount; i++)
+        {
+            Destroy(_customDeck.GetChild(i).gameObject);
+        }
     }
 
     //instantiates all owned cards into scroll transform at the start
@@ -50,24 +64,58 @@ public class OwnedCardsRefactored : MonoBehaviour
             _builtDeck.Capacity = 20;
         }
 
-        //MoveToCustomDeck();
+        if (_builtDeck.Count < 20)
+        {
+            _warning.SetActive(true);
+            _saveButton.interactable = false;
+        }
+        else
+        {
+            _warning.SetActive(false);
+            _saveButton.interactable = true;
+        }
+
+        //checks if any card has been double clicked
+        for (int i = 0; i < _cards.Count; i++)
+        {
+            CardContents content = _cards[i].GetComponent<CardContents>();
+
+            if (content.doublClicked)
+            {
+                MoveToCustomDeck(content.cardScriptableObject);
+
+                content.doublClicked = false;
+            }
+        }
     }
 
-    //private void MoveToCustomDeck()
-    //{
-    //    for (int i = 0; i < _cards.Count; i++)
-    //    {
-    //        if (_cards[i].GetComponent<CardContents>().doublClicked)
-    //        {
-    //            if (_builtDeck.Contains(_cards[i].gameObject)) return;
-    //
-    //            _builtDeck[i] = _cards[i].gameObject;
-    //
-    //            Destroy(_cards[i].gameObject);
-    //        }
-    //    }
-    //}
+    //move a specific card to deck builder
+    public void MoveToCustomDeck(UnitCard unitCard)
+    {
+        if (_builtDeck.Count < 20)
+        {
+            int multiple = 0;
+            for (int i = 0; i < _builtDeck.Count; i++)
+            {
+                if (_builtDeck[i] == unitCard)
+                {
+                    multiple++;
+                }
+            }
 
+            if (multiple > 1)
+            {
+                return;
+            }
+
+            _builtDeck.Add(unitCard);
+
+            _cardPrefab.GetComponent<CardContents>().cardScriptableObject = unitCard;
+            Instantiate(_cardPrefab, _customDeck, false);
+        }
+    }
+
+    //fills the card collection with cards
     private void PopulateCardHolder()
     {
         //CheckForNewCards();
@@ -79,6 +127,7 @@ public class OwnedCardsRefactored : MonoBehaviour
         }
     }
 
+    //returns the card using its faction
     private UnitCard GetScriptableObjectViaFaction(int index)
     {
         foreach (List<UnitCard> list in ownedCards)
@@ -92,6 +141,7 @@ public class OwnedCardsRefactored : MonoBehaviour
         return null;
     }
 
+    //when clicking change faction button, changess to next faction
     public void ChangeFactionType()
     {
         if (_faction == FactionClass.Ironside)
@@ -112,14 +162,23 @@ public class OwnedCardsRefactored : MonoBehaviour
             Destroy(_cards[i].gameObject);
         }
 
+        _builtDeck.Clear();
+
+        for (int i = 0; i < _customDeck.childCount; i++)
+        {
+            Destroy(_customDeck.GetChild(i).gameObject);
+        }
+
         PopulateCardHolder();
     }
 
+    //saves the built deck
     public void SaveBuiltDeck()
     {
-
+        SavingHandler.Instance.SaveChosenDeck(_builtDeck);
     }
 
+    //whether there are new cards to be added to collection or not, must check before display collection
     private void CheckForNewCards()
     {
         List<UnitCard> newCollection = SavingHandler.Instance.UpdateCardCollection();
