@@ -24,6 +24,7 @@ public class GameplayStateMachine : MonoBehaviour
 
 
     Timer timerClass;
+    XP XPClass;
 
     public GameplayState gameplayState;
     public enum GameplayState
@@ -42,6 +43,7 @@ public class GameplayStateMachine : MonoBehaviour
     {
         gameplayState = GameplayState.Menu;
         timerClass = FindObjectOfType<Timer>();
+        XPClass = FindObjectOfType<XP>();
     }
 
     private void Update()
@@ -122,12 +124,13 @@ public class GameplayStateMachine : MonoBehaviour
             case GameplayState.Win:
 
                 //XP +2, Save XP total.
+                XPClass.AddWinXP();
 
                 break;
             case GameplayState.Lose:
 
                 //XP +1, Save XP total
-
+                XPClass.AddLoseXP();
                 break;
             default:
 

@@ -41,6 +41,7 @@ public class MenuHandler : MonoBehaviour
     public bool isInGame;
     Timer timerClass;
     GameplayStateMachine gameplayStateMachineClass;
+    XP XPClass;
 
     public enum MenuStates
     {
@@ -74,6 +75,7 @@ public class MenuHandler : MonoBehaviour
         gameplayUI.gameObject.SetActive(false);
         timerClass = FindObjectOfType<Timer>();
         gameplayStateMachineClass = FindObjectOfType<GameplayStateMachine>();
+        XPClass = FindObjectOfType<XP>();
     }
 
     private void Update()
@@ -159,6 +161,7 @@ public class MenuHandler : MonoBehaviour
     public void ForfeitGame()
     {
         //Concede or Morale = 0
+        XPClass.addXP = true;
         gameplayStateMachineClass.gameplayState = GameplayStateMachine.GameplayState.Lose;
         gameplayUI.gameObject.SetActive(false);
         overlay.gameObject.SetActive(false);
@@ -169,6 +172,7 @@ public class MenuHandler : MonoBehaviour
 
     public void WinGame()
     {
+        XPClass.addXP = true;
         gameplayStateMachineClass.gameplayState = GameplayStateMachine.GameplayState.Win;
         gameplayUI.gameObject.SetActive(false);
         overlay.gameObject.SetActive(false);
