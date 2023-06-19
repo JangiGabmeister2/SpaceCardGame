@@ -20,7 +20,7 @@ public class OwnedCardsRefactored : MonoBehaviour
     [SerializeField] private GameObject _warning;
     [SerializeField] private Button _saveButton;
     //a list of lists, for every owned card in every existing _faction
-    [Space(20)] 
+    [Space(20)]
     public List<UnitCard>[] ownedCards = new List<UnitCard>[3];
     [SerializeField]
     List<UnitCard> _swarmers = new List<UnitCard>(),
@@ -30,7 +30,7 @@ public class OwnedCardsRefactored : MonoBehaviour
     [SerializeField] List<UnitCard> _builtDeck = new List<UnitCard>();
     //list of cards in collection
     [SerializeField] List<GameObject> _cards = new List<GameObject>();
-    
+
     private void Awake()
     {
         _cards.Capacity = 15;
@@ -92,24 +92,27 @@ public class OwnedCardsRefactored : MonoBehaviour
     //move a specific card to deck builder
     public void MoveToCustomDeck(UnitCard unitCard)
     {
-        int multiple = 0;
-        for (int i = 0; i < _builtDeck.Count; i++)
+        if (_builtDeck.Count < 20)
         {
-            if (_builtDeck[i] == unitCard)
+            int multiple = 0;
+            for (int i = 0; i < _builtDeck.Count; i++)
             {
-                multiple++;
+                if (_builtDeck[i] == unitCard)
+                {
+                    multiple++;
+                }
             }
+
+            if (multiple > 1)
+            {
+                return;
+            }
+
+            _builtDeck.Add(unitCard);
+
+            _cardPrefab.GetComponent<CardContents>().cardScriptableObject = unitCard;
+            Instantiate(_cardPrefab, _customDeck, false);
         }
-
-        if (multiple > 1)
-        {
-            return;
-        }
-
-        _builtDeck.Add(unitCard);
-
-        _cardPrefab.GetComponent<CardContents>().cardScriptableObject = unitCard;
-        Instantiate(_cardPrefab, _customDeck, false);
     }
 
     //fills the card collection with cards

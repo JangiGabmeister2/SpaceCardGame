@@ -22,10 +22,7 @@ public class SavingHandler : MonoBehaviour
     }
     #endregion
 
-    [Header("Player Win Event")]
-    public UnityEvent onMatchWin;
-    [Header("Player Lose Event")]
-    public UnityEvent onMatchLoss;
+    [SerializeField] List<UnitCard> collectables = new List<UnitCard>();
 
     private List<UnitCard> cardCollection = new List<UnitCard>();
 
@@ -134,12 +131,16 @@ public class SavingHandler : MonoBehaviour
     {
         int xpLevel = PlayerPrefs.GetInt("experience_points", 0);
 
+        UnitCard randoCard;
+
         //if xp level after gaining current match xp reaches 10, player increases level and gains new card
         if (xpLevel + ExperienceEarned() >= 10)
         {
             IncreasePlayerLevel();
 
-            //get new card
+            int randomCard = Random.Range(0, collectables.Count);
+            randoCard = collectables[randomCard];
+            collectables.RemoveAt(randomCard);
 
             xpLevel = xpLevel - 10;
         }
