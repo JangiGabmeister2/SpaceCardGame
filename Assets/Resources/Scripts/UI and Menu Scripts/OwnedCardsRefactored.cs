@@ -87,6 +87,19 @@ public class OwnedCardsRefactored : MonoBehaviour
                 content.doublClicked = false;
             }
         }
+
+        for (int i = 0; i < _customDeck.childCount; i++)
+        {
+            CardContents content = _customDeck.GetChild(i).GetComponent<CardContents>();
+
+            if (content.doublClicked)
+            {
+                _builtDeck.Remove(_builtDeck[i]);
+                Destroy(_customDeck.GetChild(i).gameObject);
+
+                content.doublClicked = false;
+            }
+        }
     }
 
     //move a specific card to deck builder
