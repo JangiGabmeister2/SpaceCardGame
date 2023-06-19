@@ -13,6 +13,7 @@ public class CardContents : MonoBehaviour, IPointerDownHandler
     public Image cardIcon;
     public Text cardName, hullValue, shieldValue, costValue, attackStrength, cardFaction;
     public Text description;
+    public Text index;
 
     [HideInInspector] public bool doublClicked = false;
 

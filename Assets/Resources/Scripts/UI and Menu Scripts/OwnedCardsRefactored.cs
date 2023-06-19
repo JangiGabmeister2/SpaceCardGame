@@ -136,6 +136,7 @@ public class OwnedCardsRefactored : MonoBehaviour
         for (int i = 0; i < _cards.Count; i++)
         {
             _cardPrefab.GetComponent<CardContents>().cardScriptableObject = GetScriptableObjectViaFaction(i);
+            _cardPrefab.GetComponent<CardContents>().index.text = $"{i + 1:00}";
             _cards[i] = Instantiate(_cardPrefab, gameObject.transform, false);
         }
     }
@@ -194,6 +195,14 @@ public class OwnedCardsRefactored : MonoBehaviour
     //whether there are new cards to be added to collection or not, must check before display collection
     private void CheckForNewCards()
     {
-        List<UnitCard> newCollection = SavingHandler.Instance.UpdateCardCollection();
+        List<UnitCard>[] newCollection = SavingHandler.Instance.UpdateCardCollection();
+
+        foreach (List<UnitCard> faction in ownedCards)
+        {
+            foreach (UnitCard card in faction)
+            {
+
+            }
+        }
     }
 }

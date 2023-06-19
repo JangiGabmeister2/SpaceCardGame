@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,6 +24,7 @@ public class SavingHandler : MonoBehaviour
     #endregion
 
     [SerializeField] List<UnitCard> collectables = new List<UnitCard>();
+    [SerializeField] List<UnitCard>[] currentCollection = new List<UnitCard>[3];
 
     private List<UnitCard> cardCollection = new List<UnitCard>();
 
@@ -95,8 +97,18 @@ public class SavingHandler : MonoBehaviour
         return deck;
     }
 
-    public List<UnitCard> UpdateCardCollection()
+    //when receiving a new card via level up, call this
+    public void ReceiveNewCard(int newCardIndex)
     {
+        cardCollection.Add(cardCollection[newCardIndex]);
+
+        collectables.RemoveAt(newCardIndex); 
+    }
+
+    public List<UnitCard>[] UpdateCardCollection()
+    {
+        List<UnitCard>[] newCards = new List<UnitCard>[3];
+
         return null;
     }
 
