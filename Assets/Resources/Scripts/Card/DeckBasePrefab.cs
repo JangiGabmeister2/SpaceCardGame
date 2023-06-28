@@ -125,14 +125,14 @@ public class DeckBasePrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             deckBehaviour.clickedCard = this.gameObject;
             return;
         }
-        //view enemy card
+        //hover view enemy card
         if (isEnemyDeck & cardSO != blankCard)
         {
             deckBehaviour.HoverPanel(true, cardSO);
             return;
         }
 
-        //targeting enemy
+        //targeting enemy if player card currently selected
         if (isEnemyDeck & deckBehaviour.clickedCard.GetComponent<DeckBasePrefab>())
         {
             deckBehaviour.clickedCard.GetComponent<DeckBasePrefab>().target = this;

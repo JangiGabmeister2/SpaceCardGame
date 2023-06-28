@@ -73,7 +73,8 @@ public class SavingHandler : MonoBehaviour
         }
 
         List<UnitCard> deck = new List<UnitCard>();
-        OwnedCardsRefactored collection = GameObject.Find("Card Layout Controller")?.GetComponent<OwnedCardsRefactored>();
+        OwnedCardsRefactored collection = GameObject.FindObjectOfType<OwnedCardsRefactored>();
+        Debug.Log(collection);
 
         //for all IDs of cards in chosen deck
         foreach (int cardID in chosenDeck)

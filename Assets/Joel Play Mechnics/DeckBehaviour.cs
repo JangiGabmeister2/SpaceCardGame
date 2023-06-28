@@ -9,7 +9,9 @@ public class DeckBehaviour : MonoBehaviour
 {
     #region Variables ----------------------------------------------------------------
 
-   
+    public int mana;
+    public int maxMana;
+
     public List<UnitCard> deck = new List<UnitCard>(); //Saved Deck (from deck builder or default)
     public List<UnitCard> inGameDeck = new List<UnitCard>(); //The local version of the selected deck
     public List<UnitCard> hand = new List<UnitCard>(); //currentHand
@@ -50,6 +52,12 @@ public class DeckBehaviour : MonoBehaviour
     private void PullCards()
     {
         //pull from menu / local for whatever the players currently selected deck is.
+        deck = SavingHandler.Instance.GetChosenDeck();
+        inGameDeck = new List<UnitCard>();
+        foreach(UnitCard card in deck)
+        {
+            inGameDeck.Add(card);
+        }
     }
 
     public void GetEnemyDeck()
@@ -163,7 +171,7 @@ public class DeckBehaviour : MonoBehaviour
             {
                 Debug.LogWarning("PlayerPickedUp " + drawPile[count]);
                 hand[i] = drawPile[count];
-                drawPile[count].cardPlayState = UnitCard.CardPlayState.Held;
+                //drawPile[count].cardPlayState = UnitCard.CardPlayState.Held;
                 drawPile.RemoveAt(count); //Remove card from draw list
                 break;
             }
@@ -193,8 +201,6 @@ public class DeckBehaviour : MonoBehaviour
     
     private void SetCards()
     {
-        inGameDeck = new List<UnitCard>(deck);
-
         //shuffle the deck
         for (var i = 0; i < inGameDeck.Count; i++) 
         {

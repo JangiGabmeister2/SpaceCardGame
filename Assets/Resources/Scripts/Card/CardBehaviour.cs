@@ -11,11 +11,12 @@ public class CardBehaviour : MonoBehaviour
     internal UnitCard baseCard;
     //Making an instance of the card scriptable object (change this one)
     public UnitCard cardInstance;
+    public enum CardPlayState { InDeck, Held, Played, IsDead };
+    public CardPlayState cardPlayState;
 
+    //Placeholder, grab reference from whatever is keeping track of the board later
     public List<UnitCard> allies;
     public List<UnitCard> enemies;
-
-    public bool isUpdating;
 
     private void Awake()
     {
@@ -23,38 +24,12 @@ public class CardBehaviour : MonoBehaviour
     }
     void Start()
     {
-        isUpdating = true;
-    }
-
-    IEnumerator UpdatePlayedCards()
-    {
-        isUpdating = false;
-        yield return new WaitForSeconds(.2f);
-        enemies.Clear();
-        allies.Clear();
-        foreach (var ally in FindObjectsOfType<DeckBasePrefab>())
-        {
-            if (ally.CompareTag("PlayerDeck"))
-            {
-                allies.Add(ally.cardSO);
-            }
-        }
-        foreach (var enemy in FindObjectsOfType<DeckBasePrefab>())
-        {
-            if (enemy.CompareTag("EnemyDeck"))
-            {
-                enemies.Add(enemy.cardSO);
-            }
-        }
-        isUpdating = true;
+        
     }
 
     private void Update()
     {
-        if (isUpdating)
-        {
-            StartCoroutine(UpdatePlayedCards());
-        }
+        
     }
 
     void PlayCard()

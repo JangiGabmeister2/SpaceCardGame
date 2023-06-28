@@ -30,12 +30,11 @@ public class GameplayStateMachine : MonoBehaviour
     {
         Menu,
         GameStart,
-        Player1Turn,
-        Player2Turn,
+        PlayerTurn,
+        OpponentTurn,
         ActionReplay,
         Win,
         Lose,
-
     }
 
     private void Start()
@@ -55,39 +54,41 @@ public class GameplayStateMachine : MonoBehaviour
 
         if (coinToss <= 50)
         {
-            
             timerClass.turnTimer = 45;
-            gameplayState = GameplayState.Player1Turn;
-
+            gameplayState = GameplayState.PlayerTurn;
             Debug.Log("player one turn");
         }
         else
         {
-
             timerClass.turnTimer = 45;
-            gameplayState = GameplayState.Player2Turn;
-
+            gameplayState = GameplayState.OpponentTurn;
             Debug.Log("player two turn");
         }
-
         Debug.Log(coinToss);
     }
 
     public void EndTurn()
     {
-        if (gameplayState == GameplayState.Player1Turn)
+        if (gameplayState == GameplayState.PlayerTurn)
         {
-            gameplayState = GameplayState.Player2Turn;
-            timerClass.turnTimer = 45;
-            Debug.Log("Player 2 turn");
+            Debug.Log("Player turn ended");
+            StartCoroutine(TurnTransition(GameplayState.OpponentTurn));
         }
-        else if (gameplayState == GameplayState.Player2Turn)
+        else if (gameplayState == GameplayState.OpponentTurn)
         {
-            gameplayState = GameplayState.Player1Turn;
-            timerClass.turnTimer = 45;
-            Debug.Log("Player 1 turn");
+            Debug.Log("Opponent turn ended");
+            StartCoroutine(TurnTransition(GameplayState.PlayerTurn));
         }
+    }
 
+    IEnumerator TurnTransition(GameplayState nextTurn)
+    {
+        gameplayState = GameplayState.ActionReplay;
+        timerClass.turnTimer = 45;
+        //do replay stuff
+        yield return new WaitForSeconds(3f);
+        gameplayState = nextTurn;
+        yield return null;
     }
 
     public void ChangeGameState()
@@ -96,49 +97,31 @@ public class GameplayStateMachine : MonoBehaviour
         {
             case GameplayState.Menu:
                 //Do nothing
-
                 break;
             case GameplayState.GameStart:
                 CoinToss();
-
                 break;
-            case GameplayState.Player1Turn:
-
+            case GameplayState.PlayerTurn:
                 //Allow actions for player 1
                 //Stop actions for player 2 - Pause button should still be accessable.
-
                 break;
-            case GameplayState.Player2Turn:
+            case GameplayState.OpponentTurn:
 
                 //Allow actions for player 2
                 //Stop actions for player 1 - Pause button should still be accessable.
-
                 break;
             case GameplayState.ActionReplay:
-
                 //Transfer Data? Show actions taken by enemy.
-
                 break;
             case GameplayState.Win:
-
                 //XP +2, Save XP total.
-
                 break;
             case GameplayState.Lose:
-
                 //XP +1, Save XP total
-
                 break;
             default:
-
                 Debug.LogWarning("Something failed in the StateMachine");
-
                 break;
         }
-
-
-
-
     }
-
 }

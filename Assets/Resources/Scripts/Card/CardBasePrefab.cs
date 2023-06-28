@@ -64,7 +64,7 @@ public class CardBasePrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //clicking the same card twice
+        //clicking the same card twice deselects
         if (isClicked)
         {
             deckBehaviour.clickedCard = null;
@@ -73,10 +73,16 @@ public class CardBasePrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             isClicked = false;
             return;
         }
-        isHovered = false;
-        deckBehaviour.hoverCard = null; 
-        deckBehaviour.clickedCard = gameObject;
-        isClicked = true;
+
+        //Selects this card
+        //TODO: replace true with cost check
+        if (true)
+        {
+            isHovered = false;
+            deckBehaviour.hoverCard = null;
+            deckBehaviour.clickedCard = gameObject;
+            isClicked = true;
+        }
     }
 
     private void Scale(bool up)
@@ -93,15 +99,6 @@ public class CardBasePrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     
     private void Update()
     {
-        
-        if (!cardSO == blankCard)
-        {
-            if(cardSO != cardSO)
-            {
-                cardSO = Instantiate(cardSO);
-            }
-        }
-
         cardBackground.material = deckBehaviour.clickedCard == gameObject ? clickedMat : baseMat;
 
         SetDeckUI(cardSO != blankCard);
