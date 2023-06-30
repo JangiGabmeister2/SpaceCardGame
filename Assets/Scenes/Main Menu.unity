@@ -8672,6 +8672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3837282534429971134}
   - component: {fileID: 3837282534429971133}
+  - component: {fileID: 3837282534429971135}
   m_Layer: 0
   m_Name: Saving Handler
   m_TagString: Untagged
@@ -8707,6 +8708,39 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba9cb98d03e0dfe448eabcb07754d3a1, type: 2}
   - {fileID: 11400000, guid: e6c5365bb118546409ff6040f8214fb1, type: 2}
   - {fileID: 11400000, guid: c3ba8038ec0b3524e8f570f19adcc6e6, type: 2}
+  swarmers:
+  - {fileID: 11400000, guid: 43a0319962f62c14eafc7cd8cf42e1f1, type: 2}
+  - {fileID: 11400000, guid: c2f8a8ccdb7b0944d8e06b96c1f3435e, type: 2}
+  - {fileID: 11400000, guid: ec29779a6c550084386b60489cfd20a1, type: 2}
+  - {fileID: 11400000, guid: 2f5d73458d304024d9e0ada261691ccb, type: 2}
+  - {fileID: 11400000, guid: cc783b9e7950e6644baae50ed7f02392, type: 2}
+  - {fileID: 11400000, guid: ba619895250880248908ca08fcc0e09e, type: 2}
+  - {fileID: 11400000, guid: 0efa6eeaed351b64f87fd738acbd4a1b, type: 2}
+  - {fileID: 11400000, guid: f2b4370836b84a147a37482a676d4d1c, type: 2}
+  - {fileID: 11400000, guid: 1aba0468d4d6dab42bcbe6ae7e0fe365, type: 2}
+  - {fileID: 11400000, guid: 79c0fe52bb1b74141897528512043269, type: 2}
+  midling:
+  - {fileID: 11400000, guid: 00530fdd7c931f8469094aae3985cd6a, type: 2}
+  - {fileID: 11400000, guid: a00875847fea76f4f8d46d2540ab43df, type: 2}
+  - {fileID: 11400000, guid: f3007f78c1d722341b480b6905fbbe04, type: 2}
+  - {fileID: 11400000, guid: 77626d7f5f79be641a7f100a8a997137, type: 2}
+  - {fileID: 11400000, guid: 16f7e5092e907e7408e18b2626727eb3, type: 2}
+  - {fileID: 11400000, guid: f3168afd3f771664cbb19f4da3036b12, type: 2}
+  - {fileID: 11400000, guid: 406f4ee95a21be94a9a527530e36a728, type: 2}
+  - {fileID: 11400000, guid: 765fb48943bc8db4d9c879d998307014, type: 2}
+  - {fileID: 11400000, guid: 7acc4d23a40df76408b8262ec54f8cd7, type: 2}
+  - {fileID: 11400000, guid: f9093f2d1b68b7347b7588967b81ec86, type: 2}
+  ironSide:
+  - {fileID: 11400000, guid: d60b9512abcf25a429a35e84ee1706b7, type: 2}
+  - {fileID: 11400000, guid: 71bfbf433313aae43b4ed32b55016a13, type: 2}
+  - {fileID: 11400000, guid: 815603804e644be4f8128110d8d91735, type: 2}
+  - {fileID: 11400000, guid: 0f87e2b6bd141aa4d97d3ce7711f6cd0, type: 2}
+  - {fileID: 11400000, guid: 3151c39acf4819f4384d0de02dd4eec2, type: 2}
+  - {fileID: 11400000, guid: 67bccc34026f7304cb11117cbfead31d, type: 2}
+  - {fileID: 11400000, guid: 48b5d91cc502b0e4c92efe9691355a45, type: 2}
+  - {fileID: 11400000, guid: 800a1de2f912aee44b839e81a403a4fe, type: 2}
+  - {fileID: 11400000, guid: b0427f1887e68c4418b48cb4b7e71fe4, type: 2}
+  - {fileID: 11400000, guid: 45938521ec9fe7a4cba099db0fc0933a, type: 2}
 --- !u!4 &3837282534429971134
 Transform:
   m_ObjectHideFlags: 0
@@ -8722,6 +8756,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3837282534429971135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3837282534429971132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373e82f637d7c22489bab18b286c2ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultDeck: []
 --- !u!224 &4911668166064593712
 RectTransform:
   m_ObjectHideFlags: 0
