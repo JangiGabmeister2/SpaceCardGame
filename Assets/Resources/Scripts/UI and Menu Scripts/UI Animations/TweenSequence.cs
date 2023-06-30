@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 using DG.Tweening;
 
 public class TweenSequence : MonoBehaviour
 {
+    public UnityEvent onComplete;
+
     [SerializeField] TransformTween[] tweens;
 
     private void Start()
@@ -15,5 +19,7 @@ public class TweenSequence : MonoBehaviour
         {
             s.Append(tweens[i].tweener);
         }
+
+        s.OnComplete(onComplete.Invoke);
     }
 }
