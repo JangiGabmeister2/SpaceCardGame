@@ -2,9 +2,18 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class PanelTweener : MonoBehaviour
+public class PanelTweener : MonoBehaviour, IPointerDownHandler
 {
+    public UnityEvent onPanelExit;
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        PlayTweenOut();
+    }
+
     public void PlayTweenIn()
     {
         transform.localPosition = new Vector2(0f, -1000f);
@@ -16,6 +25,7 @@ public class PanelTweener : MonoBehaviour
     {
         transform.localPosition = new Vector2(0f, 0f);
         transform.DOLocalMove(new Vector2(0f, -1000f), .5f)
-            .SetEase(Ease.InOutBack);
+            .SetEase(Ease.InOutBack)
+            .OnComplete(onPanelExit.Invoke);
     }
 }

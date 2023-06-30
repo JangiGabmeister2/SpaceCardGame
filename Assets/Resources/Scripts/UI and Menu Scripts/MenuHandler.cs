@@ -31,6 +31,7 @@ public class MenuHandler : MonoBehaviour
 
     public GameObject[] panels;
     public Button pauseButton;
+    public Button endTurnButton;
     public Button returnToGame;
     public Button returnToMenu;
 
@@ -245,6 +246,8 @@ public class MenuHandler : MonoBehaviour
             case MenuStates.Gameplay:
                 CloseAllPanels(5);
                 pauseButton.gameObject.SetActive(true);
+                pauseButton.interactable = true;
+                endTurnButton.interactable = true;
                 isInGame = true;    
                 gameplayUI.gameObject.SetActive(true);
                 overlay.gameObject.SetActive(true);
