@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class SavingHandler : MonoBehaviour
 {
@@ -20,11 +18,15 @@ public class SavingHandler : MonoBehaviour
             Debug.Log("Saving Handler already exists! Destorying duplicate!");
             Destroy(gameObject);
         }
-    }
+            }
     #endregion
 
     [SerializeField] List<UnitCard> collectables = new List<UnitCard>();
-    [SerializeField] List<UnitCard>[] currentCollection = new List<UnitCard>[3];
+    [SerializeField] List<UnitCard>[] currentCollection;
+    [SerializeField]
+    List<UnitCard> swarmers = new List<UnitCard>(),
+        midling = new List<UnitCard>(),
+        ironSide = new List<UnitCard>();
 
     private List<UnitCard> cardCollection = new List<UnitCard>();
 
@@ -32,7 +34,12 @@ public class SavingHandler : MonoBehaviour
 
     private void Start()
     {
-            
+        currentCollection = new List<UnitCard>[] { swarmers, midling, ironSide };
+    }
+
+    private void Update()
+    {
+        PlayerPrefs.Save();
     }
 
     //when called, gets all the card IDs of the cards in custom deck area
@@ -59,7 +66,7 @@ public class SavingHandler : MonoBehaviour
     public List<UnitCard> GetChosenDeck()
     {
         //takes the string of card IDs from player prefs
-        string savedDeck = PlayerPrefs.GetString("chosen_deck");
+        string savedDeck = PlayerPrefs.GetString("chosen_deck", "101,101,102,102,103,103,104,104,105,105,106,106,107,107,108,108,109,109,110,110");
 
         List<int> chosenDeck = new List<int>();
 
@@ -73,14 +80,12 @@ public class SavingHandler : MonoBehaviour
         }
 
         List<UnitCard> deck = new List<UnitCard>();
-        OwnedCardsRefactored collection = GameObject.FindObjectOfType<OwnedCardsRefactored>();
-        Debug.Log(collection);
 
         //for all IDs of cards in chosen deck
         foreach (int cardID in chosenDeck)
         {
             //for each faction of all owned cards
-            foreach (List<UnitCard> list in collection.ownedCards)
+            foreach (List<UnitCard> list in currentCollection)
             {
                 //for all cards in each faction
                 foreach (UnitCard cards in list)
@@ -103,7 +108,7 @@ public class SavingHandler : MonoBehaviour
     {
         cardCollection.Add(cardCollection[newCardIndex]);
 
-        collectables.RemoveAt(newCardIndex); 
+        collectables.RemoveAt(newCardIndex);
     }
 
     public List<UnitCard>[] UpdateCardCollection()
