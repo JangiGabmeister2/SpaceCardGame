@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CardContents : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler
+public class CardContents : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public UnitCard cardScriptableObject;
 
@@ -47,7 +47,23 @@ public class CardContents : MonoBehaviour, IPointerDownHandler, IDragHandler, IE
     {
         clicked++;
         if (clicked == 1) clicktime = Time.time;
+
+        if (clicked > 1 && Time.time - clicktime < clickdelay)
+        {
+            clicked = 0;
+            clicktime = 0;
+
+            doublClicked = true;
+
+        }
+        else if (clicked > 2 || Time.time - clicktime > 1) clicked = 0;
+
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        clicked++;
 #if UNITY_ANDROID
+//displays a tooltip displaying the card's stats on a larger area if detected you're using an android
         if (!isDragging)
         {
             if (clicked == 1)
@@ -62,24 +78,5 @@ public class CardContents : MonoBehaviour, IPointerDownHandler, IDragHandler, IE
             }
         }
 #endif
-
-        if (clicked > 1 && Time.time - clicktime < clickdelay)
-        {
-            clicked = 0;
-            clicktime = 0;
-
-            doublClicked = true;
-
-        }
-        else if (clicked > 2 || Time.time - clicktime > 1) clicked = 0;
-
-    }
-    public void OnDrag(PointerEventData eventData)
-    {
-        isDragging = true;
-    }
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        isDragging = false;
     }
 }

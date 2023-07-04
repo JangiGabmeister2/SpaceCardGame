@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1767344162}
   m_HandleRect: {fileID: 1767344161}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1541,6 +1541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 338674850}
+  - component: {fileID: 338674854}
   - component: {fileID: 338674853}
   - component: {fileID: 338674852}
   - component: {fileID: 338674851}
@@ -1641,6 +1642,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338674849}
   m_CullTransparentMesh: 1
+--- !u!114 &338674854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338674849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e1bb8b3b396fc4eb9393f68942be50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisScrollRect: {fileID: 0}
+  thisScrollBar: {fileID: 0}
+  swipeOrigin: {x: 0, y: 0}
 --- !u!1 &398450146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,7 +3264,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1671938725}
   m_HandleRect: {fileID: 1671938724}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4473,6 +4489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325898792}
+  - component: {fileID: 1325898796}
   - component: {fileID: 1325898795}
   - component: {fileID: 1325898794}
   - component: {fileID: 1325898793}
@@ -4573,6 +4590,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325898791}
   m_CullTransparentMesh: 1
+--- !u!114 &1325898796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325898791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e1bb8b3b396fc4eb9393f68942be50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisScrollRect: {fileID: 0}
+  thisScrollBar: {fileID: 0}
+  swipeOrigin: {x: 0, y: 0}
 --- !u!1 &1326845800
 GameObject:
   m_ObjectHideFlags: 0
@@ -9063,6 +9095,7 @@ MonoBehaviour:
   selectedCardCost: {fileID: 3928390776058300982}
   selectedCardAttack: {fileID: 3928390774659145551}
   selectedCardDescription: {fileID: 3928390776414811405}
+  toolWindow: {fileID: 0}
 --- !u!114 &3928390775012567696
 MonoBehaviour:
   m_ObjectHideFlags: 0

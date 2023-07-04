@@ -5,47 +5,35 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ScrollGesture : MonoBehaviour
+public class ScrollGesture : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
-    #region Speed and Deadzones
-    public float swipeThreshold = 100f;
-    public float scrollSpeed = 10f;
-    #endregion
-    #region  Scrollrect and Bools
-    [SerializeField]
-    private ScrollRect thisScrollRect;
-    private bool isDragging = false; // whether the current action is a drag or not
-    private Vector2 dragStartPos; //where is the first point of contact the device has registered
-    #endregion
+    public ScrollRect thisScrollRect;
+    public Scrollbar thisScrollBar;
+
+    public Vector2 swipeOrigin;
+    private float scrollOrigin;
 
     private void Awake()
     {
-        thisScrollRect = GetComponent<ScrollRect>();   
-    }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        isDragging = false;
-        dragStartPos = eventData.position;  
+        thisScrollRect = GetComponent<ScrollRect>();
+        thisScrollBar = GetComponentInChildren<Scrollbar>();
     }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        swipeOrigin = eventData.position;
+        Debug.Log("Swipe Origin = " + swipeOrigin.ToString());
+        scrollOrigin = thisScrollBar.value;
+    }
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 dragDelta = eventData.position - dragStartPos;
-        if(!isDragging && dragDelta.magnitude > swipeThreshold)
-        {
-            thisScrollRect.OnBeginDrag(eventData);
-        }
-        if (isDragging)
-        {
-            thisScrollRect.OnDrag(eventData);
-        }
-    }
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (isDragging)
-        {
-            thisScrollRect.OnEndDrag(eventData);
-        }
-        isDragging = false;
+        float swipeDistance = eventData.position.x - swipeOrigin.x;
+        float contentWidth = thisScrollRect.content.rect.width;
+        float viewPortWidth = thisScrollRect.viewport.rect.width;
+
+        float normalizedSwipeDist = swipeDistance / (contentWidth - viewPortWidth);
+
+        thisScrollBar.value = Mathf.Clamp(scrollOrigin + normalizedSwipeDist, 0f, 1f);
+
     }
 }
