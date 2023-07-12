@@ -30,6 +30,9 @@ public class OwnedCardsRefactored : MonoBehaviour
     [SerializeField] List<UnitCard> _builtDeck = new List<UnitCard>();
     //list of cards in collection
     [SerializeField] List<GameObject> _cards = new List<GameObject>();
+    //UI to show the player how many cards are owned
+    [SerializeField]
+    private Text deckCount;
 
     private void Awake()
     {
@@ -59,6 +62,7 @@ public class OwnedCardsRefactored : MonoBehaviour
 
     private void Update()
     {
+        deckCount.text ="Owned Cards: " + _builtDeck.Capacity.ToString() + " / 20";
         if (_builtDeck.Capacity > 20)
         {
             _builtDeck.Capacity = 20;
